@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
-    'forum.apps.ForumConfig',
-    'przepisy.apps.PrzepisyConfig',
+    'dodaj.apps.DodajConfig',
+    'opinie.apps.OpinieConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, "static"),]
+# STATICFILES_DIRS=('C:\VS\workspace\ProjektTWwB\Dionizos\static',)

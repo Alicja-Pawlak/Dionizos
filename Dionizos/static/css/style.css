@@ -1,0 +1,29 @@
+nav a:hover {
+    color: rgb(231, 0, 212) !important;
+}
+
+.nav-color {
+    background-color: rgba(0, 0, 0, 0.87);
+}
+
+.guzik:hover {
+    background-color: rgb(231, 0, 212) !important;
+    color: white !important;
+}
+
+.margin {
+    margin: 80px 100px;
+    padding: 20px;
+}
+
+.marginpr {
+    margin-top: 150px;
+}
+
+.white {
+    color:white;
+}
+
+.yellow:hover {
+    color: rgb(255, 196, 0);
+}
