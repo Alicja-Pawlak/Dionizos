@@ -2,199 +2,54 @@
 {% block content %}
 {%load static%}
 
-<main>
-    <article>
-        <div class="container">
-            <div class="col-12">
-                <header class="mt-5 pt-5">
-                    <h5>Wina z każdej półki!</h5>
-                    <div class="mt-3 pb-5 border-bottom">Przedstawiamy Państwu ofertę win z całego świata. Na naszej stronie nie ogranicza
-                        nas żadna cena, kolor czy smak wina.
-                        Wybieramy na podstawie własnego węchu i smaku, wszystkie inne czynniki nie mają tu znaczenia!
-                        Bla bla bla test... hahahahahahahah hihihihihhihihih hehehehhehehehehhe.
-                        Cos tam cos tam sprawdzam jak wyglada padding. Jeszcze wiecej muse napisac, jezu.
-                    </div>
-                </header>
+    <main>
+        <article>
+            <div class="container">
+                <div class="col-12">
+                    <header class="mt-5 pt-5">
+                        <center><h5>Wina z każdej półki!</h5></center>
+                        <div class="mt-3 pb-5 border-bottom">
+                            Przedstawiamy Państwu ofertę win z całego świata. Na naszej stronie nie ogranicza
+                            nas żadna cena, kolor czy smak wina.
+                            Wybieramy na podstawie własnego węchu i smaku, wszystkie inne czynniki nie mają tu znaczenia!
+                            Bla bla bla test... hahahahahahahah hihihihihhihihih hehehehhehehehehhe.
+                            Cos tam cos tam sprawdzam jak wyglada padding. Jeszcze wiecej muse napisac, jezu.
+                        </div>
+                    </header>
+                </div>
             </div>
-        </div>
-    </article>
-    <div class="container">
+        </article>
         <section>
-            <a class="w-100 btn btn-dark guzik border-light" href="{% url 'dodaj' %}" role="button"><h5 class="mt-1">Dodaj swój przepis</h5></a>
-            <h3 class="text-center mt-5 mb-0">Nasze produkty</h3>
-            <h4 class="text-center text-muted">Wybierz czego szukasz</h4>
-            <div class="row mt-5">
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
+            <div class="container">
+                <h3 class="text-center mt-5 mb-0">Nasze produkty</h3>
+                <h4 class="text-center text-muted">Wybierz czego szukasz</h4>
+                <div class="row mt-5">
+                    {% for wine in wines %}
+                    <div class="col-md-6 col-lg-3 mb-4">
+                        <div class="card-group">
+                            <div class="card border-light shadow p-3 rounded mb-5">
 
-                            <img class="card-img-top" src="{% static 'vina-esmeralda.jpg' %}" height="400px"/>
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
+                                <img class="card-img-top" src="{{ wine.picture }}" height="400" /> <!-- aktualnie trzeba podawać ścieżkę do zdjęcia w bazie -->
+                                <div class="card-body text-center">
+                                    <h5 class="card-title pt-4">{{ wine.name }}</h5>
+                                    <h6 class="mb-3">{{ wine.price }} zł</h6>
+                                    <button type="button" class="btn btn-dark btn-sm mr-1">
+                                        Wybierz
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-sm">
+                                        <i class="far fa-star"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            {%load static%}
-                            <img class="card-img-top" src="{%static 'carlo-rossi.jpg'%}" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            {%load static%}
-                            <img class="card-img-top" src="{%static 'amarena.jpg'%}" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            {%load static%}
-                            <img class="card-img-top" src="{%static 'czarna-porzeczka.jpg'%}" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            <img class="card-img-top" src="static/vina-esmeralda.jpg" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            <img class="card-img-top" src="static/vina-esmeralda.jpg" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            <img class="card-img-top" src="static/vina-esmeralda.jpg" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            <img class="card-img-top" src="static/vina-esmeralda.jpg" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card-group">
-                        <div class="card border-light shadow p-3 rounded mb-5">
-                            <img class="card-img-top" src="static/vina-esmeralda.jpg" height="400px"
-                                alt="Card image cap">
-                            <div class="card-body text-center">
-                                <h5 class="card-title pt-4">Vina Esmeralda</h5>
-                                <h6 class="mb-3">21.99 zł</h6>
-                                <button type="button" class="btn btn-dark btn-sm mr-1">
-                                    Wybierz
-                                </button>
-                                <button type="button" class="btn btn-warning btn-sm">
-                                    <i class="far fa-star"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-        </section>
+                
 
+</section>
 
-
-
-    </div>
-</main>
+        <center> <a class="button1" href="{% url 'dodaj' %}" role="button"><h3 class="mt-1">Dodaj swój produkt</h3></a></center>
+    </main>
 {% endblock %}
