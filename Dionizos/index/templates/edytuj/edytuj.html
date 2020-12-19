@@ -7,12 +7,29 @@
         <div class="d-flex w-100 m-5">
             <i class="far fa-7x fa-image img-thumbnail d-flex align-items-center px-5"></i>
             <table class="d-inline p-5 mt-3">
+                {% csrf_token %}
+                <h3 class="title">{% block title %}{% endblock %}</h3>
+                <tr>
+                    <th>
+                        <h4>Nazwa:</h4>
+                    </th>
+                    <td class="pl-3">
+                        <h6>{{ form.name }}</h6>
+                    </td>
+                </tr>
+                <th>
+                    <h4>Cena:</h4>
+                </th>
+                <td class="pl-3">
+                    <h6>{{ form.price }}</h6>
+                </td>
+                </tr>
                 <tr>
                     <th>
                         <h4>Kolor:</h4>
                     </th>
                     <td class="pl-3">
-                        <h6>{cos tam}</h6>
+                        <h6>{{ form.color }}</h6>
                     </td>
                 </tr>
                 <tr>
@@ -20,35 +37,24 @@
                         <h4>Smak:</h4>
                     </th>
                     <td class="pt-3 pl-3">
-                        <h6>{cos tam}</h6>
+                        <h6>{{ form.taste }}</h6>
                     </td>
                 </tr>
                 <tr>
                     <th class="pt-3">
-                        <h4>Kraj:</h4>
+                        <h4>Zdjecie:</h4>
                     </th>
                     <td class="pt-3 pl-3">
-                        <h6>{cos tam}</h6>
+                        <h6>{{ form.picture }}</h6> <!-- Tymczasowo sciezka do zdjecia, ogarne to potem-->
                     </td>
                 </tr>
-                <tr>
-                    <th class="pt-3">
-                        <h4>Cena:</h4>
-                    </th>
-                    <td class="pt-3 pl-3">
-                        <h6>{cos tam}</h6>
-                    </td>
-                </tr>
+
             </table>
         </div>
         <div class="ml-5 p-3">
 
-                <h4 class="mb-3">Przepis:</h4>
-                <p class="mb-4">Donec id elit non non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-                    blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe  non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-                    blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe  non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-                    blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe  mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-                    blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe cwecnwec ecnwe vjksnckjsneiocmw cniewmciwc wecnweicwe cwedit.</p>
+                <h4 class="mb-3">Opis:</h4>
+                 {{ form.description }} 
 
 
         </div>

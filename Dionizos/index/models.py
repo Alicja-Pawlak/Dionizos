@@ -19,7 +19,7 @@ class Wines(models.Model):
                (WHITE, "białe"),
                (PINK, "różowe")]
 
-    Color = models.CharField(max_length=1,
+    color = models.CharField(max_length=1,
                               choices=COLOURS,)
 
     SWEET = "s"

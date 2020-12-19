@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
-    'dodaj.apps.DodajConfig',
-    'opinie.apps.OpinieConfig',
 ]
 
 MIDDLEWARE = [
