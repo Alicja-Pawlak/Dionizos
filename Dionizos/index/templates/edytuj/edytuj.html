@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%load static%}
+</nav>
+</header>
+<div class="container bg-light">
+    <div class="col-12 margin100 mb-5 border p-3 shadow-lg">
+        <div class="d-flex w-100 m-5">
+            <i class="far fa-7x fa-image img-thumbnail d-flex align-items-center px-5"></i>
+            <table class="d-inline p-5 mt-3">
+                {% csrf_token %}
+                <h3 class="title">{% block title %}{% endblock %}</h3>
+                <tr>
+                    <th>
+                        <h4>Nazwa:</h4>
+                    </th>
+                    <td class="pl-3">
+                        <h6>{{ form.name }}</h6>
+                    </td>
+                </tr>
+                <th>
+                    <h4>Cena:</h4>
+                </th>
+                <td class="pl-3">
+                    <h6>{{ form.price }}</h6>
+                </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h4>Kolor:</h4>
+                    </th>
+                    <td class="pl-3">
+                        <h6>{{ form.color }}</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="pt-3">
+                        <h4>Smak:</h4>
+                    </th>
+                    <td class="pt-3 pl-3">
+                        <h6>{{ form.taste }}</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="pt-3">
+                        <h4>Zdjecie:</h4>
+                    </th>
+                    <td class="pt-3 pl-3">
+                        <h6>{{ form.picture }}</h6> <!-- Tymczasowo sciezka do zdjecia, ogarne to potem-->
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="ml-5 p-3">
+
+            <h4 class="mb-3">Opis:</h4>
+            {{ form.descriptions }}
+
+
+        </div>
+        <div class="d-flex flex-row-reverse">
+            <a href="#"><button type="button" class="shadow btn btn-success guzik border-light">Zapisz</button></a>
+            <a href="{% url 'index' %}"><button type="button"
+                    class="shadow btn btn-danger guzik border-light">Anuluj</button></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

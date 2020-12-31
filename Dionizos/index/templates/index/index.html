@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+{%load static%}
+<button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+  aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+</nav>
+</header>
+<main class="container px-4 margin100 mb-5 shadow-lg bg-light border">
+  <article>
+    <div>
+
+      <div class="bg-dark mt-5 fixed-top shadow">
+        <nav class=" py-0 navbar navbar-expand-md nav-color navbar-dark">
+          <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mt-2 mt-lg-0 mx-auto">
+              <li class="nav-item dropdown px-5">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">Kolor</a>
+                <div class="dropdown-menu text-center" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#">Czerwone</a>
+                  <a class="dropdown-item" href="#">Białe</a>
+                  <a class="dropdown-item" href="#">Różowe</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown px-5">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">Smak</a>
+                <div class="dropdown-menu text-center" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#">Słodkie</a>
+                  <a class="dropdown-item" href="#">Półsłodkie</a>
+                  <a class="dropdown-item" href="#">Wytrawne</a>
+                  <a class="dropdown-item" href="#">Półwytrawne</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown px-5">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">Cena</a>
+                <div class="dropdown-menu text-center" aria-labelledby="dropdownId">
+                  <a class="dropdown-item" href="#">Do 20 zł</a>
+                  <a class="dropdown-item" href="#">20 zł - 49 zł</a>
+                  <a class="dropdown-item" href="#">50 zł - 99 zł</a>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
+                          <a class="nav-link" href="{% url 'opinie' %}"></a>
+                        </li> -->
+              <!-- <li class="nav-item">
+                          <a class="nav-link" href="{% url 'dodaj' %}">Dodaj <i class="far fa-plus"></i></a>
+                        </li> -->
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+      <div class="col-12 mt-4 pt-5">
+        <header>
+          <h5 class="text-center">Wina z każdej półki!</h5>
+          <div class="mt-3 pb-5 border-bottom">
+            Przedstawiamy Państwu ofertę win z całego świata. Na naszej stronie nie ogranicza
+            nas żadna cena, kolor czy smak wina.
+            Wybieramy na podstawie własnego węchu i smaku, wszystkie inne czynniki nie mają tu znaczenia!
+            Bla bla bla test... hahahahahahahah hihihihihhihihih hehehehhehehehehhe.
+            Cos tam cos tam sprawdzam jak wyglada padding. Jeszcze wiecej muse napisac, jezu.
+          </div>
+        </header>
+        
+      </div>
+    </div>
+  </article>
+  <section>
+    <div class="container">
+      <h3 class="text-center mt-5 mb-5">Nasza oferta</h3>
+      <form class="form-inline d-flex flex-row-reverse md-form form-sm" action="." method="POST">
+        <button class="btn btn-dark guzik"><i class="fas fa-search px-3 py-1" aria-hidden="true"></i></button>
+        {% csrf_token %}
+        {{ form }}
+
+      </form>
+      <!-- Button z plusem i winem -->
+      <div class="mt-4 d-flex flex-row-reverse">
+      <a href="{% url 'dodaj' %}">
+        <button class="btn btn-dark px-3 guzik" data-toggle="tooltip" data-placement="left" title="Dodaj produkt">
+          <i class="fas fa-plus "></i> <i class="fas fa-wine-bottle fa-lg"></i>
+        </button>
+      </a>
+      </div>
+      <div class="row mt-5">
+        {% for wine in wines %}
+        <div class="col-md-6 col-lg-3 mb-4">
+          <div class="card-group">
+            <div class="card border-light shadow p-3 rounded mb-5">
+
+              <img class="card-img-top" src="{{ wine.picture }}" height="400" />
+              <!-- aktualnie trzeba podawać ścieżkę do zdjęcia w bazie -->
+              <div class="card-body text-center">
+                <h5 class="card-title pt-4">{{ wine.name }}</h5>
+                <h6 class="card-title m-0">{{ wine.color_name }}</h6>
+                <h6 class="card-title ">{{ wine.taste_name }}</h6>
+                <h6 class="card-title ">{{ wine.price }} zł</h6>
+
+                <a href="#">
+                  <button type="button" class="guzik btn btn-dark btn-sm mr-1">
+                    Wybierz
+                  </button>
+                </a>
+
+                <button type="button" class="btn btn-warning btn-sm">
+                  <i class="far fa-star"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+  </section>
+
+
+</main>
+{% endblock %}

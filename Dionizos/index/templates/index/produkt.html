@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+{%load static%}
+</nav>
+</header>
+<div class="container bg-light mb-5 shadow-lg">
+    <div class="col-12 margin100 border p-3 shadow ">
+        <div class="d-flex w-100">
+            <img src="{% static 'vina-esmeralda.jpg' %}" class="img-thumbnail m-5">
+            <table class="d-inline p-5 mt-3">
+                <tr>
+                    <th>
+                        <h4>Kolor:</h4>
+                    </th>
+                    <td class="pl-3">
+                        <h6>{cos tam}</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="pt-3">
+                        <h4>Smak:</h4>
+                    </th>
+                    <td class="pt-3 pl-3">
+                        <h6>{cos tam}</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="pt-3">
+                        <h4>Cena:</h4>
+                    </th>
+                    <td class="pt-3 pl-3">
+                        <h6>{cos tam}</h6>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="pt-3">
+                        <h4>Ocena:</h4>
+                    </th>
+                    <td class="pt-3 pl-3">
+                        <i class="far fa-star yellow"></i>
+                        <i class="far fa-star yellow"></i>
+                        <i class="far fa-star yellow"></i>
+                        <i class="far fa-star yellow"></i>
+                        <i class="far fa-star yellow"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="ml-5 p-3">
+
+            <h4 class="mb-3">Przepis:</h4>
+            <p class="mb-4">Donec id elit non non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
+                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe non mi porta gravida at eget metus. Maecenas
+                sed diam eget risus varius
+                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe non mi porta gravida at eget metus. Maecenas
+                sed diam eget risus varius
+                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe mi porta gravida at eget metus. Maecenas sed
+                diam eget risus varius
+                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe cwecnwec ecnwe vjksnckjsneiocmw cniewmciwc
+                wecnweicwe cwedit.</p>
+
+
+        </div>
+        <div class="float-right">
+            <a href="{% url 'opinie' %}"><button type="button" class="shadow btn btn-dark guzik border-light">Dodaj
+                    opinię</button></a>
+        </div>
+    </div>
+    <div class="col-12 mt-5 pt-5">
+        <h4 class="mb-4">Opinie:</h4>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-dark white">
+                <h6>Użytkownik1:</h6>
+            </li>
+            <li class="list-group-item">Dobre wino</li>
+        </ul>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item bg-dark white">
+                <h6>Użytkownik2:</h6>
+            </li>
+            <li class="list-group-item">No tak średnio bym pwoiedział.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
