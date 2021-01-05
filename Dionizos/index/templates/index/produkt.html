@@ -4,83 +4,89 @@
 {%load static%}
 </nav>
 </header>
-<div class="container bg-light mb-5 shadow-lg">
-    <div class="col-12 margin100 border p-3 shadow ">
-        <div class="d-flex w-100">
-            <img src="{% static 'vina-esmeralda.jpg' %}" class="img-thumbnail m-5">
-            <table class="d-inline p-5 mt-3">
-                <tr>
-                    <th>
-                        <h4>Kolor:</h4>
-                    </th>
-                    <td class="pl-3">
-                        <h6>{cos tam}</h6>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="pt-3">
-                        <h4>Smak:</h4>
-                    </th>
-                    <td class="pt-3 pl-3">
-                        <h6>{cos tam}</h6>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="pt-3">
-                        <h4>Cena:</h4>
-                    </th>
-                    <td class="pt-3 pl-3">
-                        <h6>{cos tam}</h6>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="pt-3">
-                        <h4>Ocena:</h4>
-                    </th>
-                    <td class="pt-3 pl-3">
-                        <i class="far fa-star yellow"></i>
-                        <i class="far fa-star yellow"></i>
-                        <i class="far fa-star yellow"></i>
-                        <i class="far fa-star yellow"></i>
-                        <i class="far fa-star yellow"></i>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="ml-5 p-3">
+<div class="container bg-light mb-5">
+    <div class="col-12 margin100 p-3">
+        <div class="row">
 
-            <h4 class="mb-3">Przepis:</h4>
-            <p class="mb-4">Donec id elit non non mi porta gravida at eget metus. Maecenas sed diam eget risus varius
-                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe non mi porta gravida at eget metus. Maecenas
-                sed diam eget risus varius
-                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe non mi porta gravida at eget metus. Maecenas
-                sed diam eget risus varius
-                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe mi porta gravida at eget metus. Maecenas sed
-                diam eget risus varius
-                blannrjkncjksnkjcnjsk cjksncjknsjkccnnciow cnecnweionciwe cwecnwec ecnwe vjksnckjsneiocmw cniewmciwc
-                wecnweicwe cwedit.</p>
+            <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
+                <!-- tutaj trzeba będzie wstawić zdjątko -->
+                <img class="card-img-top" src="{%static 'carlo-rossi.jpg'%}" height="400" />
+            </div>
+            <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
 
+                <div class="card-body">
+                    <h4 class="titles card-title">Nazwa wina</h4>
+                </div>
+                <!-- tutaj będzie trzeba wstawić parametry -->
+                <ul class="list-group list-group-flush mb-5">
+                    <li class="list-group-item">Cena: </li>
+                    <li class="list-group-item">Kolor: </li>
+                    <li class="list-group-item">Smak: </li>
+                    <li class="list-group-item">Opis: </li>
+                </ul>
+            </div>
 
+             <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->
+            <div class="col-12 mt-5 pt-5">
+                <div class="float-right">
+                    <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal" data-target="#opinia"><i
+                            class="fas fa-plus "></i> Dodaj opinię</button>
+                    <!-- Modal - wyskakujący popup do dodania opinii -->
+                    <div class="modal fade" id="opinia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Dodaj swoją opinię</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- tu się zaczyna formularz -->
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Imię i nazwisko:</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="np. Jan Kowalski">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlTextarea1">Opinia:</label>
+                                            <textarea data-toggle="tooltip" data-placement="bottom"
+                                                title="Prosimy o szczere opinie!" class="form-control"
+                                                id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                    </form>
+                                    <!-- koniec formularza -->
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary guzik"
+                                        data-dismiss="modal">Anuluj</button>
+                                    <a href="#"><button type="button" class="btn btn-dark  guzik">Zapisz</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div></a>
+                    <!-- koniec modala - popupu -->
+                </div>
+
+                <!-- tutaj będzie trzeba wstawić dodane opinie -->
+                <div class="shadow-sm border rounded mt-5">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
+                            <h6 class="text-bold">Imię z formularza:</h6>
+                        </li>
+                        <li class="list-group-item">Dobre wino</li>
+                    </ul>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-wlasne text-light pb-2 pt-3">
+                            <h6 class="text-bold">Alicja Pawlak:</h6>
+                        </li>
+                        <li class="list-group-item">No tak średnio bym pwoiedział.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="float-right">
-            <a href="{% url 'opinie' %}"><button type="button" class="shadow btn btn-dark guzik border-light">Dodaj
-                    opinię</button></a>
-        </div>
-    </div>
-    <div class="col-12 mt-5 pt-5">
-        <h4 class="mb-4">Opinie:</h4>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-dark white">
-                <h6>Użytkownik1:</h6>
-            </li>
-            <li class="list-group-item">Dobre wino</li>
-        </ul>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item bg-dark white">
-                <h6>Użytkownik2:</h6>
-            </li>
-            <li class="list-group-item">No tak średnio bym pwoiedział.</li>
-        </ul>
     </div>
 </div>
 {% endblock %}

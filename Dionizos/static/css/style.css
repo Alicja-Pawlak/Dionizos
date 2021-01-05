@@ -1,42 +1,57 @@
+/* domyślna czcionka */
+body{
+    font-family: tahoma,sans-serif;
+}
+
+/* użyte do głównego backgroundu i tła dla nazw użytkowników przy komentarzach */
 .bg-wlasne{
     background: rgb(1,0,15);
     background: linear-gradient(180deg, rgba(1,0,15,1) 0%, rgba(55,15,37,1) 71%, rgba(85,29,60,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+/* użyte do linków w nawigacji */
 a:hover {
-    color: rgb(167, 132, 167) !important;
+    color: rgb(161, 139, 167) !important;
 }
 
+/* użyte przy większych, tytułowych tekstach */
+.titles{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    font-weight: 300 !important;
+}
+/* użyte przy komentarzach dla nazwy użytkownika */
+.text-bold{
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+}
+/* użyte dla nawigacji i footera */
 .nav-color {
     background-color: rgba(43, 19, 43, 0.87);
 }
-
+/* użyte dla buttonów */
+.bg-black{
+    background-color: rgb(27, 27, 27);
+}
+/* użyte dla buttonów */
 .guzik:hover {
-    background-color:  rgba(43, 19, 43, 0.87) !important;
-    border: 1px solid   rgba(43, 19, 43, 0.87);
-    box-shadow: 2px 2px 10px black;
+    box-shadow: 2px 2px 6px black;
 }
 
+/* użyte w różnych miejscach
+głównie żeby coś nie nachodziło
+na nawigacje */
 .margin {
     margin: 80px 100px;
     padding: 20px;
 }
-
 .margin100{
     margin-top: 100px;
 }
 .marginpr {
     margin-top: 120px;
 }
-
-.white {
-    color:white;
-}
-
-.yellow:hover {
-    color: rgb(255, 196, 0);
-}
-.nounderline {
-    text-decoration: none !important
-  }
 

@@ -28,10 +28,10 @@ class Wines(models.Model):
     DRY = "d"
     SEMIDRY = "sd"
 
-    TASTE = [(SWEET, "slodkie"),
-             (SEMISWEET, "polslodkie"),
+    TASTE = [(SWEET, "słodkie"),
+             (SEMISWEET, "półsłodkie"),
              (DRY, "wytrawne"),
-             (SEMIDRY, "połwytrawne")]
+             (SEMIDRY, "półwytrawne")]
 
     taste = models.CharField(max_length=2,
                               choices=TASTE,
@@ -44,7 +44,9 @@ class Wines(models.Model):
     picture = models.TextField(default="",
                                blank=True,
                                verbose_name="picture")
-                            
+
+    # te funkcje zwracają dobre nazwy 
+    # (czerwone, a nie 'r', półsłodkie, a nie 'se') 
     def color_name(self):
         for name in self.COLOURS:
             if self.color == name[0]:
