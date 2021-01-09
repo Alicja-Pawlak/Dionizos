@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from index.models import Wines
 from index.forms import WineForm, SearchForm
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -22,9 +23,11 @@ def index(request):
                     "wines": wines})
 
 
-def produkt(request):
+def produkt(request, pk):
     return render(request,
-                  template_name="index/produkt.html")
+                  template_name="index/produkt.html",
+                  context={"wine": get_object_or_404(Wines,
+                                                       pk=pk)})
 
 def dodaj(request):
     form = WineForm(label_suffix="")

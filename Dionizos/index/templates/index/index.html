@@ -108,8 +108,8 @@
                 <h6 class="card-title ">{{ wine.price }} zł</h6>
 
                 <!-- tutaj będzie trzeba zrobić przekierowanie
-                do strony danego produktu (aktualnie url = /produkt/1) -->
-                <a href="#">
+                do strony danego produktu   aktualnie url = /produkt/1) -->
+                <a href="{% url "produkt" wine.id %}">
                   <button type="button" class="guzik btn btn-dark btn-sm px-4">
                     Wybierz
                   </button>

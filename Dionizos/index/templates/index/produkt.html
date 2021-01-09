@@ -15,14 +15,14 @@
             <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
 
                 <div class="card-body">
-                    <h4 class="titles card-title">Nazwa wina</h4>
+                    <h4 class="titles card-title">{{ wine.name }}</h4>
                 </div>
                 <!-- tutaj będzie trzeba wstawić parametry -->
                 <ul class="list-group list-group-flush mb-5">
-                    <li class="list-group-item">Cena: </li>
-                    <li class="list-group-item">Kolor: </li>
-                    <li class="list-group-item">Smak: </li>
-                    <li class="list-group-item">Opis: </li>
+                    <li class="list-group-item">Cena:{{ wine.price }} </li>
+                    <li class="list-group-item">Kolor:{{ wine.color_name }} </li>
+                    <li class="list-group-item">Smak: {{ wine.taste_name }} </li>
+                    <li class="list-group-item">Opis: {{ wine.descriptions }}</li>
                 </ul>
             </div>
 

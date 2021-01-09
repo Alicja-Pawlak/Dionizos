@@ -1,4 +1,4 @@
-{% load static %}
+﻿{% load static %}
 <!doctype html>
 <html lang="pl">
 
@@ -25,20 +25,34 @@
 
   <header>
     <nav class="navbar navbar-expand-md fixed-top nav-color navbar-dark">
-      <div class="col-8 offset-2 col-md-12 offset-md-0 text-center">
-        <a class="navbar-brand" href="{% url 'index' %}">
-          <i class="fas fa-wine-glass"></i>
-          DIONIZOS
-          <i class="fas fa-wine-glass"></i>
-        </a>
-      </div>
+        <div class="col-8 offset-2 col-md-12 offset-md-0 text-center">
+            <a class="navbar-brand" href="{% url 'index' %}">
+                <i class="fas fa-wine-glass"></i>
+                DIONIZOS
+                <i class="fas fa-wine-glass"></i>
+            </a>
+            <span class="login">
+                {% if user.is_authenticated %}
+                {{ user.username }}
+                <a href="{% url "logout" %}">
+                    <i class="fas fa-sign-out"></i> Wyloguj
+                </a>
+                {% else %}
+                <a href="{% url "login" %}">
+                    <i class="fas fa-sign-in"></i> Zaloguj
+                </a>
+                {% endif %}
+            </span>
+        </div>
       <!-- nie zamykam znaczników header i nav w base, 
         bo w indexie są dodatkowe opcje przy nawigacji,
         których nie użyłam na innyc podstronach -->
 
-      {% block content %}
-      DOMYSLNY
-      {% endblock  %}
+      <section class="content">
+         {% block content %}
+          Domyślny!
+         {% endblock %}
+      </section>
 
       <footer class="navbar navbar-fixed-bottom nav-color text-light">
         <div class="container-fluid pt-2">
