@@ -10,7 +10,7 @@
 
             <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
-                <img class="card-img-top" src="{%static 'carlo-rossi.jpg'%}" height="400" />
+                <img class="card-img-top" src=" ../../{{ wine.image }}" height="400" />
             </div>
             <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
 
@@ -47,14 +47,11 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Imię i nazwisko:</label>
-                                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                                placeholder="np. Jan Kowalski">
+                                            {{ form.nickname }}
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Opinia:</label>
-                                            <textarea data-toggle="tooltip" data-placement="bottom"
-                                                title="Prosimy o szczere opinie!" class="form-control"
-                                                id="exampleFormControlTextarea1" rows="3"></textarea>
+                                            {{ form.description }}
                                         </div>
                                     </form>
                                     <!-- koniec formularza -->
@@ -72,17 +69,13 @@
 
                 <!-- tutaj będzie trzeba wstawić dodane opinie -->
                 <div class="shadow-sm border rounded mt-5">
+                    {% for comment in comments %}
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
-                            <h6 class="text-bold">Imię z formularza:</h6>
+                            <h6 class="text-bold">{{ comment.name }}</h6>
                         </li>
-                        <li class="list-group-item">Dobre wino</li>
-                    </ul>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-wlasne text-light pb-2 pt-3">
-                            <h6 class="text-bold">Alicja Pawlak:</h6>
-                        </li>
-                        <li class="list-group-item">No tak średnio bym pwoiedział.</li>
+                        <li class="list-group-item">{{ comment.description }} li>
+                    {% endfor %}
                     </ul>
                 </div>
             </div>

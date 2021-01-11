@@ -5,9 +5,12 @@
     "\\Dionizos\\Dionizos",
     "\\Dionizos\\index",
     "\\Dionizos\\index\\templates",
+    "\\Dionizos\\index\\templates\\edytuj",
     "\\Dionizos\\index\\templates\\index",
-    "\\Dionizos\\static"
+    "\\Dionizos\\static",
+    "\\Dionizos\\static\\css",
+    "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos\\index\\models.py",
+  "SelectedNode": "\\Dionizos\\index\\views.py",
   "PreviewInSolutionExplorer": false
 }
