@@ -8,4 +8,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('index.urls')),   
 ]
-
+urlpatterns += staticfiles_urlpatterns() 

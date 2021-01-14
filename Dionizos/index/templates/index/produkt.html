@@ -4,7 +4,7 @@
 {%load static%}
 </nav>
 </header>
-<div class="container bg-light mb-5">
+<div class="col-10 offset-1 bg-light mb-5">
     <div class="col-12 margin100 p-3">
         <div class="row">
 
@@ -19,8 +19,8 @@
                 </div>
                 <!-- tutaj będzie trzeba wstawić parametry -->
                 <ul class="list-group list-group-flush mb-5">
-                    <li class="list-group-item">Cena:{{ wine.price }} </li>
-                    <li class="list-group-item">Kolor:{{ wine.color_name }} </li>
+                    <li class="list-group-item">Cena: {{ wine.price }} </li>
+                    <li class="list-group-item">Kolor: {{ wine.color_name }} </li>
                     <li class="list-group-item">Smak: {{ wine.taste_name }} </li>
                     <li class="list-group-item">Opis: {{ wine.descriptions }}</li>
                 </ul>

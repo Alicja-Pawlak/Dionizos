@@ -1,7 +1,9 @@
 /* domyślna czcionka */
 body{
     font-family: tahoma,sans-serif;
-}
+    min-height:100%; 
+    position:relative; 
+    padding-bottom:60px;}
 
 /* użyte do głównego backgroundu i tła dla nazw użytkowników przy komentarzach */
 .bg-wlasne{
@@ -54,3 +56,10 @@ na nawigacje */
 .marginpr {
     margin-top: 120px;
 }
+
+.sticky-bottom {
+    position: absolute; 
+    left: 0 ; right: 0; bottom: 0; 
+    height:60px;
+}
+html { height: 100%; }
