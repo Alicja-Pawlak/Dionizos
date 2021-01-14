@@ -4,12 +4,13 @@
     "\\Dionizos",
     "\\Dionizos\\Dionizos",
     "\\Dionizos\\index",
-    "\\Dionizos\\index\\templates",
     "\\Dionizos\\index\\templates\\edytuj",
     "\\Dionizos\\index\\templates\\index",
+    "\\Dionizos\\index\\templates\\opinie",
     "\\Dionizos\\static",
+    "\\Dionizos\\static\\css",
     "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos\\static\\czarna-porzeczka.jpg",
+  "SelectedNode": "\\Dionizos\\index\\urls.py",
   "PreviewInSolutionExplorer": false
 }
