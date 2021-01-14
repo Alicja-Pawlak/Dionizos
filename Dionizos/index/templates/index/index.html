@@ -7,7 +7,7 @@
 </button>
 </nav>
 </header>
-<main class="container px-4 margin100 mb-5 shadow-lg bg-light border">
+<main class="col-10 offset-1 px-4 margin100 mb-5 shadow-lg bg-light border">
   <article>
     <div>
       <div class="bg-dark mt-5 fixed-top shadow">
@@ -101,6 +101,7 @@
                 
                 <!-- funkcje z podłogą zwracają te dobre nazwy 
                   (czerwone, a nie 'r', półsłodkie, a nie 'se') -->
+            
                 <h5 class="card-title pt-4">{{ wine.name }}</h5>
                 <h6 class="card-title m-0">{{ wine.color_name }}</h6>
                 <h6 class="card-title ">{{ wine.taste_name }}</h6>
@@ -108,7 +109,7 @@
 
                 <!-- tutaj będzie trzeba zrobić przekierowanie
                 do strony danego produktu   aktualnie url = /produkt/1) -->
-                <a href="{% url "produkt" wine.id %}">
+                <a href="{% url 'produkt' wine.id %}">
                   <button type="button" class="guzik btn btn-dark btn-sm px-4">
                     Wybierz
                   </button>

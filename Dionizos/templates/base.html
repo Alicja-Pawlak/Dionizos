@@ -34,11 +34,11 @@
             <span class="login">
                 {% if user.is_authenticated %}
                 {{ user.username }}
-                <a href="{% url "logout" %}">
+                <a href="{% url 'logout' %}">
                     <i class="fas fa-sign-out"></i> Wyloguj
                 </a>
                 {% else %}
-                <a href="{% url "login" %}">
+                <a href="{% url 'login' %}">
                     <i class="fas fa-sign-in"></i> Zaloguj
                 </a>
                 {% endif %}
@@ -54,7 +54,7 @@
    {% endblock %}
 </section>
 
-      <footer class="navbar navbar-fixed-bottom nav-color text-light">
+      <footer class="navbar sticky-bottom nav-color text-light">
         <div class="container-fluid pt-2">
           <div class="row col-12">
             <div class="col-6 d-flex justify-content-start align-items-end">
