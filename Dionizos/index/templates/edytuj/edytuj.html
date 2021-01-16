@@ -3,8 +3,37 @@
 {% block content %}
 {%load static%}
 </nav>
+<span class="col-12 marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
+    {% if user.is_authenticated %}
+    <div class="d-flex align-items-center mr-2">
+    {{ user.username }}
+  </div>
+    <a href="{% url 'logout' %}">
+      <button class="btn nav-color border-dark text-light py-1 guzik">
+        <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
+      </button>
+    </a>
+    {% else %}
+    <div class="col-3 pr-0 d-flex justify-content-end">
+      <div >
+        <a href="{% url 'login' %}">
+          <button class="btn nav-color text-light mr-2 py-1 border-dark guzik">
+            <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
+          </button>
+        </a>
+      </div>
+      <div >
+        <a href="{% url 'signup' %}">
+          <button class="btn nav-color border-dark text-light py-1 guzik">
+          <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
+        </button>
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </span>
 </header>
-<div class="col-10 offset-1 bg-light">
+<div class="container bg-light">
     <div class="col-12 margin100 mb-5 p-3">
         <h3 class="bg-wlasne p-4 text-light titles text-center mt-2 rounded">Dodaj produkt</h3>
         <div class="p-4">
@@ -12,11 +41,14 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <!-- tutaj jest button do zapisywania produktu do bazy -->
-                <button type="submit" class="btn btn-dark guzik">Zapisz</button>
+                <div class="d-flex justify-content-end"> 
+                
                 <button type="button" class="btn btn-secondary guzik mr-1" data-toggle="modal"
                         data-target="#anulowanie">
                     Anuluj
                 </button>
+                <button type="submit" class="btn btn-dark guzikd">Zapisz</button>
+            </div>
                 <!-- Modal - wyskakujący popup -->
                 <div class="modal fade" id="anulowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                      aria-hidden="true">

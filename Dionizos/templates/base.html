@@ -25,25 +25,13 @@
 
   <header>
     <nav class="navbar navbar-expand-md fixed-top nav-color navbar-dark">
-        <div class="col-8 offset-2 col-md-12 offset-md-0 text-center">
-            <a class="navbar-brand" href="{% url 'index' %}">
-                <i class="fas fa-wine-glass"></i>
-                DIONIZOS
-                <i class="fas fa-wine-glass"></i>
+      
+          <div class="col-6 offset-3 col-md-12 offset-md-0 text-center">
+            <a class="logo z-index navbar-brand" href="{% url 'index' %}">
+                Dionizos  
             </a>
-            <span class="login">
-                {% if user.is_authenticated %}
-                {{ user.username }}
-                <a href="{% url 'logout' %}">
-                    <i class="fas fa-sign-out"></i> Wyloguj
-                </a>
-                {% else %}
-                <a href="{% url 'login' %}">
-                    <i class="fas fa-sign-in"></i> Zaloguj
-                </a>
-                {% endif %}
-            </span>
         </div>
+
       <!-- nie zamykam znaczników header i nav w base, 
         bo w indexie są dodatkowe opcje przy nawigacji,
         których nie użyłam na innyc podstronach -->
@@ -54,13 +42,13 @@
    {% endblock %}
 </section>
 
-      <footer class="navbar sticky-bottom nav-color text-light">
+      <footer class="navbar sticky-bottom nav-color text-light pb-2">
         <div class="container-fluid pt-2">
           <div class="row col-12">
-            <div class="col-6 d-flex justify-content-start align-items-end">
-              Copyright @ Dionizos 2020. All right reserved.
+            <div class="col-6 d-flex p-0 m-0 justify-content-start align-items-end">
+              Copyright @ Dionizos
             </div>
-            <div class="col-6">
+            <div class="col-6 ">
               <!-- ikonki do footera -->
               <div class="d-flex justify-content-end">
                 <i class="fab fa-facebook-square fa-2x p-xs-0 px-sm-3 "></i>
