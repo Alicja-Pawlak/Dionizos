@@ -57,7 +57,11 @@ na nawigacje */
     margin-top: 120px;
 }
 .marginlog {
-    margin-top:70px;
+    margin-top:71px;
+}
+.marginindexlog{
+    margin-top: 20px; 
+
 }
 
 .sticky-bottom {
@@ -80,4 +84,7 @@ link:hover {
 
 .z-index{
     z-index: 1000;
+}
+.shadowlog{
+    box-shadow: 2px 2px 3px black;
 }

@@ -8,28 +8,30 @@
 
 </button>
 </nav>
-<span class="col-12 marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
+<span class="col-3 offset-9  marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
   {% if user.is_authenticated %}
-  <div class="d-flex align-items-center mr-2">
+  <div class="d-flex align-items-center">
+    <span class="btn bg-wlasne py-1 text-light">
   {{ user.username }}
+</span>
 </div>
   <a href="{% url 'logout' %}">
-    <button class="btn nav-color border-dark text-light py-1 guzik">
+    <button class="btn nav-color text-light py-1 guzik shadowlog">
       <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
     </button>
   </a>
   {% else %}
-  <div class="col-3 pr-0 d-flex justify-content-end">
+  <div class="col-12 pr-0 d-flex justify-content-end">
     <div >
       <a href="{% url 'login' %}">
-        <button class="btn nav-color text-light mr-2 py-1 border-dark guzik">
+        <button class="btn nav-color text-light mr-1 py-1 guzik shadowlog">
           <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
         </button>
       </a>
     </div>
     <div >
       <a href="{% url 'signup' %}">
-        <button class="btn nav-color border-dark text-light py-1 guzik">
+        <button class="btn nav-color text-light py-1 guzik shadowlog">
         <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
       </button>
       </a>
@@ -42,7 +44,7 @@
   <article>
     <div>
       <div class="bg-dark mt-5 fixed-top shadow">
-        <nav class=" py-0 navbar navbar-expand-sm nav-color navbar-dark">
+        <nav class=" py-0 position-fixed marginindexlog col-12 navbar navbar-expand-sm bg-wlasne navbar-dark">
           <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0 mx-auto">
               <li class="nav-item dropdown px-5">
@@ -141,7 +143,7 @@
                 <!-- tutaj będzie trzeba zrobić przekierowanie
                 do strony danego produktu   aktualnie url = /produkt/1) -->
                 <a href="{% url 'produkt' wine.id %}">
-                  <button type="button" class="guzik btn btn-dark btn-sm px-4">
+                  <button type="button" class="guzik btn bg-black text-light btn-sm px-4">
                     Wybierz
                   </button>
                 </a>
