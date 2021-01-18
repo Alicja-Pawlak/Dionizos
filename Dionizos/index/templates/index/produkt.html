@@ -3,8 +3,39 @@
 {% block content %}
 {%load static%}
 </nav>
+<span class="col-3 offset-9  marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
+    {% if user.is_authenticated %}
+    <div class="d-flex align-items-center">
+      <span class="btn bg-wlasne py-1 text-light">
+    {{ user.username }}
+  </span>
+  </div>
+    <a href="{% url 'logout' %}">
+      <button class="btn nav-color text-light py-1 guzik shadowlog">
+        <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
+      </button>
+    </a>
+    {% else %}
+    <div class="col-12 pr-0 d-flex justify-content-end">
+      <div >
+        <a href="{% url 'login' %}">
+          <button class="btn nav-color text-light mr-1 py-1 guzik shadowlog">
+            <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
+          </button>
+        </a>
+      </div>
+      <div >
+        <a href="{% url 'signup' %}">
+          <button class="btn nav-color text-light py-1 guzik shadowlog">
+          <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
+        </button>
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </span>
 </header>
-<div class="col-10 offset-1 bg-light mb-5">
+<div class="container bg-light mb-5">
     <div class="col-12 margin100 p-3">
         <div class="row">
 

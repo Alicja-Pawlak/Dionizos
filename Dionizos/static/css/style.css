@@ -15,7 +15,7 @@ body{
 
 /* użyte do linków w nawigacji */
 a:hover {
-    color: rgb(161, 139, 167) !important;
+    color: rgb(161, 139, 167);
 }
 
 /* użyte przy większych, tytułowych tekstach */
@@ -56,6 +56,13 @@ na nawigacje */
 .marginpr {
     margin-top: 120px;
 }
+.marginlog {
+    margin-top:71px;
+}
+.marginindexlog{
+    margin-top: 20px; 
+
+}
 
 .sticky-bottom {
     position: absolute; 
@@ -63,3 +70,21 @@ na nawigacje */
     height:60px;
 }
 html { height: 100%; }
+
+link:hover {
+    color: white !important;
+}
+
+.logo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-weight: 300 !important;
+    
+}
+
+.z-index{
+    z-index: 1000;
+}
+.shadowlog{
+    box-shadow: 2px 2px 3px black;
+}
