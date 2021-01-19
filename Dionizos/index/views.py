@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from index.models import Wines, Comments
-from index.forms import WineForm, SearchForm
+from index.forms import WineForm, SearchForm, CommentForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
@@ -25,11 +25,25 @@ def index(request):
 
 
 def produkt(request, pk):
-   
+     WineFK = get_object_or_404(Wines, pk=pk)
+     comments = WineFK.comments.filter()
+     new_comment = None
+     form = CommentForm(request.POST)
+
+     if request.method == 'POST':
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.WineFK = WineFK
+            new_comment.save()
+
 
      return render(request,
                   template_name="index/produkt.html",
-                  context={"wine": get_object_or_404(Wines, pk=pk),})
+                  context = {'form': form,
+                             'wine': get_object_or_404(Wines, pk=pk),
+                             'comments': comments,
+                             'new_comment': new_comment,                            })
+
     
 
 def dodaj(request):

@@ -1,5 +1,5 @@
 from django import forms
-from index.models import Wines
+from index.models import Wines, Comments
 
 
 class WineForm(forms.ModelForm):
@@ -33,4 +33,9 @@ class SearchForm(forms.Form):
     fraze = forms.CharField(required=False, label="",widget=forms.widgets.TextInput(attrs={"placeholder":"Szukaj",
                                                                   "class":"form-control",
                                                                   "style":"width:200px;display:inline;"}))
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comments
+        fields = ('nickname', 'description')
 

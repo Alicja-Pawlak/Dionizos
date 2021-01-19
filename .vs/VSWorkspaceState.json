@@ -4,13 +4,10 @@
     "\\Dionizos",
     "\\Dionizos\\Dionizos",
     "\\Dionizos\\index",
-    "\\Dionizos\\index\\templates\\edytuj",
-    "\\Dionizos\\index\\templates\\index",
-    "\\Dionizos\\index\\templates\\opinie",
     "\\Dionizos\\static",
     "\\Dionizos\\static\\css",
     "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos\\index\\urls.py",
+  "SelectedNode": "\\Dionizos\\static\\css\\style.css",
   "PreviewInSolutionExplorer": false
 }

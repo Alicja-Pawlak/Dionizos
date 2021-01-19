@@ -2,13 +2,6 @@ from django.db import models
 
 
 # Create your models here.
-class Comments(models.Model):
-   nickname  = models.TextField(max_length=32,
-                         verbose_name="nickname")
-
-   description = models.TextField(default="",
-                               blank=True,
-                               verbose_name="comment")
 
 class Wines(models.Model):
     name = models.TextField(max_length=32,
@@ -67,4 +60,19 @@ class Wines(models.Model):
     def __str__(self):
         return self.name
 
+class Comments(models.Model):
+
+    
+   WineFK = models.ForeignKey(Wines,
+                      on_delete=models.CASCADE,
+                      related_name='comments')
+
+   nickname  = models.TextField(max_length=32,
+                         verbose_name="nickname")
+
+   description = models.TextField(default="",
+                               blank=True,
+                               verbose_name="description")
+   def __str__(self):
+        return 'Comment {} by {}'.format(self.description, self.nickname)
 

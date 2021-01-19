@@ -75,22 +75,17 @@
                                 </div>
                                 <div class="modal-body">
                                     <!-- tu się zaczyna formularz -->
-                                    <form>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlInput1">Imię i nazwisko:</label>
-                                            {{ form.nickname }}
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Opinia:</label>
-                                            {{ form.description }}
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary guzik"
+                                                    data-dismiss="modal">
+                                                Anuluj
+                                            </button>
+                                            <a href="#"><button type="submit" class="btn btn-dark  guzik">Zapisz</button></a>
                                         </div>
                                     </form>
-                                    <!-- koniec formularza -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary guzik"
-                                        data-dismiss="modal">Anuluj</button>
-                                    <a href="#"><button type="button" class="btn btn-dark  guzik">Zapisz</button></a>
                                 </div>
                             </div>
                         </div>
