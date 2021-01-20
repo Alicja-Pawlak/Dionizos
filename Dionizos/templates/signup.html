@@ -35,9 +35,9 @@
       {% endif %}
     </span>
 </header>
-<h2>Sign up</h2>
-<div class="container bg-light">
+<div class="container bg-light rounded">
     <div class="col-12 margin100 mb-5 p-3">
+      <h3 class="bg-wlasne p-4 text-light titles text-center mt-2 mb-5 rounded">Rejestracja</h3>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

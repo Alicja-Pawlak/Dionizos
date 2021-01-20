@@ -1,5 +1,6 @@
 
 // Potrzebne do tooltipu (dodaj produkt)
+// Nie działa.
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
