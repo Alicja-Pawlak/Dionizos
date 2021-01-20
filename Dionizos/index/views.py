@@ -5,6 +5,8 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+
 
 def index(request):
 
@@ -35,10 +37,10 @@ def produkt(request, pk):
             new_comment = form.save(commit=False)
             new_comment.Wine = Wine
             new_comment.save()
+            return HttpResponseRedirect(request.path_info)
 
 
-     return render(request,
-                  template_name="index/produkt.html",
+     return render(request, template_name="index/produkt.html",
                   context = {'form': form,
                              'wine': get_object_or_404(Wines, pk=pk),
                              'comments': comments,
