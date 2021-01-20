@@ -25,15 +25,15 @@ def index(request):
 
 
 def produkt(request, pk):
-     WineFK = get_object_or_404(Wines, pk=pk)
-     comments = WineFK.comments.filter()
+     Wine = get_object_or_404(Wines, pk=pk)
+     comments = Wine.comments.filter()
      new_comment = None
      form = CommentForm(request.POST)
 
      if request.method == 'POST':
         if form.is_valid():
             new_comment = form.save(commit=False)
-            new_comment.WineFK = WineFK
+            new_comment.Wine = Wine
             new_comment.save()
 
 
@@ -45,7 +45,7 @@ def produkt(request, pk):
                              'new_comment': new_comment,                            })
 
     
-
+@login_required
 def dodaj(request):
     form = WineForm(label_suffix="")
     if request.POST:
@@ -60,9 +60,6 @@ def dodaj(request):
                   template_name="edytuj/edytuj.html",
                   context={"form": form})
 
-    return render(request,
-                  template_name="dodaj/dodaj.html",
-                  context={"form": form})
 
 def opinie(request):
     return render(request,

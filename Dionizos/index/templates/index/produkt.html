@@ -41,7 +41,7 @@
 
             <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
-                <img class="card-img-top" src=" ../../{{ wine.image }}" height="400" />
+                <img class="card-img-top" src="/media/{{ wine.image }}" height="400" />
             </div>
             <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
 
@@ -98,10 +98,12 @@
                     {% for comment in comments %}
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
-                            <h6 class="text-bold">{{ comment.name }}</h6>
+                            <h6 class="text-bold">{{ comment.nickname }}</h6>
                         </li>
-                        <li class="list-group-item">{{ comment.description }} li>
-                    {% endfor %}
+                        <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
+                            {{ comment.description }}
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>

@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Wines(models.Model):
     name = models.TextField(max_length=32,
                               unique=True,
@@ -41,7 +42,7 @@ class Wines(models.Model):
                                blank=True,
                                verbose_name="opis")
 
-    image = models.ImageField(upload_to= 'static/')
+    image = models.ImageField()
 
     # te funkcje zwracają dobre nazwy 
     # (czerwone, a nie 'r', półsłodkie, a nie 'se') 
@@ -63,11 +64,11 @@ class Wines(models.Model):
 class Comments(models.Model):
 
     
-   WineFK = models.ForeignKey(Wines,
+   Wine = models.ForeignKey(Wines,
                       on_delete=models.CASCADE,
                       related_name='comments')
 
-   nickname  = models.TextField(max_length=32,
+   nickname  = models.CharField(max_length=32,
                          verbose_name="nickname")
 
    description = models.TextField(default="",
