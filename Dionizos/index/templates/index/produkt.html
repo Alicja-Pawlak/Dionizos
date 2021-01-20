@@ -50,10 +50,10 @@
                 </div>
                 <!-- tutaj będzie trzeba wstawić parametry -->
                 <ul class="list-group list-group-flush mb-5">
-                    <li class="list-group-item">Cena: {{ wine.price }} </li>
-                    <li class="list-group-item">Kolor: {{ wine.color_name }} </li>
-                    <li class="list-group-item">Smak: {{ wine.taste_name }} </li>
-                    <li class="list-group-item">Opis: {{ wine.descriptions }}</li>
+                    <li class="list-group-item"><h5><b>Cena:</b> {{ wine.price }} </h5></li>
+                    <li class="list-group-item"><h5><b>Kolor:</b> {{ wine.color_name }} </h5></li>
+                    <li class="list-group-item"><h5><b>Smak:</b> {{ wine.taste_name }} </h5></li>
+                    <li class="list-group-item"><h5><b>Opis:</b> {{ wine.descriptions }} </h5></li>
                 </ul>
             </div>
 
@@ -67,7 +67,7 @@
                         aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <div class="modal-header bg-black text-light">
+                                <div class="modal-header bg-wlasne py-4 text-light">
                                     <h5 class="modal-title" id="exampleModalLabel">Dodaj swoją opinię</h5>
                                     <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
@@ -78,12 +78,12 @@
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         {{ form.as_p }}
-                                        <div class="modal-footer">
+                                        <div class="modal-footer pb-0">
                                             <button type="button" class="btn btn-secondary guzik"
                                                     data-dismiss="modal">
                                                 Anuluj
                                             </button>
-                                            <a href="#"><button type="submit" class="btn btn-dark  guzik">Zapisz</button></a>
+                                            <a href="#"><button type="submit" class="btn btn-dark guzik">Zapisz</button></a>
                                         </div>
                                     </form>
                                 </div>
@@ -98,7 +98,7 @@
                     {% for comment in comments %}
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
-                            <h6 class="text-bold">{{ comment.nickname }}</h6>
+                            <h5>{{ comment.nickname }}</h5>
                         </li>
                         <li class="list-group-item text-bold pb-2 pt-3">
                             {{ comment.description }}
