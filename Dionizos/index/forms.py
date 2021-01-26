@@ -1,5 +1,5 @@
 from django import forms
-from index.models import Wines, Comments
+from index.models import Wine, Comment, Color, Taste
 
 
 class WineForm(forms.ModelForm):
@@ -7,7 +7,7 @@ class WineForm(forms.ModelForm):
         def __init__(self):
             self.fields['image'].required = False
 
-        model = Wines
+        model = Wine
         fields = ["name",
                   "price",
                   "color",
@@ -32,10 +32,25 @@ class WineForm(forms.ModelForm):
 class SearchForm(forms.Form):
     fraze = forms.CharField(required=False, label="",widget=forms.widgets.TextInput(attrs={"placeholder":"Szukaj",
                                                                   "class":"form-control",
-                                                                  "style":"width:200px;display:inline;"}))
+                                                                 "style":"width:200px;display:inline;"}))
+
+    
+    color = forms.ModelChoiceField(required=False,
+                                      queryset=Color.objects.all(),
+                                      label_suffix="",
+                                      empty_label="",
+                                      label="Color",
+                                      widget=forms.widgets.Select(attrs={"class": "form-control"}))
+    taste = forms.ModelChoiceField(required=False,
+                                      queryset=Taste.objects.all(),
+                                      label_suffix="",
+                                      empty_label="",
+                                      label="Taste",
+                                      widget=forms.widgets.Select(attrs={"class": "form-control"}))
+
 
 class CommentForm(forms.ModelForm):
     class Meta:
-        model = Comments
+        model = Comment
         fields = ('nickname', 'description')
 

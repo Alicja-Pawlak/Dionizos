@@ -111,12 +111,14 @@
         <div class="row mt-5">
       
         
-      <form class="= d-flex flex-row-reverse px-0" action="." method="POST">
-        <button class="btn bg-black text-light guzik"><i class="fas fa-search px-2 py-1" aria-hidden="true"></i></button>
-        {% csrf_token %}
-        {{ form }}
+            <form class="= d-flex flex-row-reverse px-0" action="." method="POST">
+                <button class="btn bg-black text-light guzik" type="submit"><i class="fas fa-search px-2 py-1" aria-hidden="true"></i></button>
+                {% csrf_token %}
+                {{ form.taste }}
+                {{ form.color }}
+                {{ form.fraze }}
 
-      </form>
+            </form>
       <!-- Button z plusem i winem -->
       <div class="d-flex pl-1">
       <a href="{% url 'dodaj' %}" >
@@ -148,8 +150,8 @@
                   (czerwone, a nie 'r', półsłodkie, a nie 'se') -->
             
                 <h5 class="card-title pt-4">{{ wine.name }}</h5>
-                <h6 class="card-title m-0">{{ wine.color_name }}</h6>
-                <h6 class="card-title ">{{ wine.taste_name }}</h6>
+                <h6 class="card-title m-0">{{ wine.color }}</h6>
+                <h6 class="card-title ">{{ wine.taste }}</h6>
                 <h6 class="card-title ">{{ wine.price }} zł</h6>
 
                 <!-- tutaj będzie trzeba zrobić przekierowanie

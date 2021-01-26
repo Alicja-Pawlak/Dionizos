@@ -1,16 +1,24 @@
 from django.contrib import admin
-from index.models import Wines, Comments
+from index.models import Wine, Comment, Taste, Color
 
 # Register your models here.
 
-class WinesAdmin(admin.ModelAdmin):
+class WineAdmin(admin.ModelAdmin):
     list_display=("name","price","color","taste","descriptions","image",)
 
-
-class CommentsAdmin(admin.ModelAdmin):
+class CommentAdmin(admin.ModelAdmin):
     list_display=("nickname", "description",)
 
-admin.site.register(Wines,WinesAdmin)
-admin.site.register(Comments,CommentsAdmin)
+class TasteAdmin(admin.ModelAdmin):
+    list_display=("taste",)
+
+class ColorAdmin(admin.ModelAdmin):
+    list_display=("color",)
+
+
+admin.site.register(Wine,WineAdmin)
+admin.site.register(Comment,CommentAdmin)
+admin.site.register(Taste,TasteAdmin)
+admin.site.register(Color,ColorAdmin)
 
 

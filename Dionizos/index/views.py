@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from index.models import Wines, Comments
+from index.models import Wine, Comment
 from index.forms import WineForm, SearchForm, CommentForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -19,7 +19,14 @@ def index(request):
             wines_filter &= Q(Q(name__icontains=form.cleaned_data["fraze"])
                                 |Q(color__icontains=form.cleaned_data["fraze"])
                                 |Q(taste__icontains=form.cleaned_data["fraze"]))
-        wines = Wines.objects.filter(wines_filter)
+
+            if form.cleaned_data["color"]:
+                wines_filter &= Q(status=form.cleaned_data["color"])
+
+            if form.cleaned_data["taste"]:
+                wines_filter &= Q(category=form.cleaned_data["taste"])
+
+        wines = Wine.objects.filter(wines_filter)
     return render(request,
             template_name="index/index.html",
             context={"form":form,
@@ -27,22 +34,22 @@ def index(request):
 
 
 def produkt(request, pk):
-     Wine = get_object_or_404(Wines, pk=pk)
-     comments = Wine.comments.filter()
+     wine = get_object_or_404(Wine, pk=pk)
+     comments = Wine.comment
      new_comment = None
      form = CommentForm(request.POST)
 
      if request.method == 'POST':
         if form.is_valid():
             new_comment = form.save(commit=False)
-            new_comment.Wine = Wine
+            new_comment.wine = wine
             new_comment.save()
             return HttpResponseRedirect(request.path_info)
 
 
      return render(request, template_name="index/produkt.html",
                   context = {'form': form,
-                             'wine': get_object_or_404(Wines, pk=pk),
+                             'wine': get_object_or_404(Wine, pk=pk),
                              'comments': comments,
                              'new_comment': new_comment,                            })
 

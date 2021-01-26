@@ -110,13 +110,13 @@
 
                 <!-- tutaj będzie trzeba wstawić dodane opinie -->
                 <div class="shadow-sm border rounded mt-5">
-                    {% for comment in comments %}
+                    {% for comments in comment %}
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item bg-wlasne text-light text-bold pb-2 pt-3">
-                            <h5>{{ comment.nickname }}</h5>
+                            <h5>{{ comments.nickname }}</h5>
                         </li>
                         <li class="list-group-item text-bold pb-2 pt-3">
-                            {{ comment.description }}
+                            {{ comments.description }}
                         </li>
                         {% endfor %}
                     </ul>
