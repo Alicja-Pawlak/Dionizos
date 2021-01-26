@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "DionizosDB",
         "USER": "postgres",
-        "PASSWORD": "postgres",
+        "PASSWORD": "postgresql",
         "HOST": "127.0.0.1",
         "PORT": "5432"
     }

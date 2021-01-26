@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
+{% load thumbnail %}
 {% block content %}
-{%load static%}
 <button class="navbar-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
   aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
 
@@ -132,9 +133,13 @@
         <div class="col-md-6 col-lg-3 mb-4">
           <div class="card-group">
             <div class="card border-light shadow p-3 rounded mb-5">
+              {% if wine.image %}
               <a href="{% url 'produkt' wine.id %}">
-              <img class="card-img-top" src="/media/{{ wine.image }}" height="400" />
+                {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
+              <img class="card-img-top" src="{{ image.url }}"  />
+              {% endthumbnail %}
             </a>
+            {% endif %}
               
               <!-- aktualnie trzeba podawać ścieżkę do zdjęcia w bazie -->
               <div class="card-body text-center">

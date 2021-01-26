@@ -1,39 +1,39 @@
 {% extends "base.html" %}
-
-{% block content %}
 {%load static%}
+{%load thumbnail%}
+{% block content %}
 </nav>
 <span class="col-3 offset-9  marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
     {% if user.is_authenticated %}
     <div class="d-flex align-items-center">
-      <span class="btn bg-wlasne py-1 text-light">
-    {{ user.username }}
-  </span>
-  </div>
+        <span class="btn bg-wlasne py-1 text-light">
+            {{ user.username }}
+        </span>
+    </div>
     <a href="{% url 'logout' %}">
-      <button class="btn nav-color text-light py-1 guzik shadowlog">
-        <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
-      </button>
+        <button class="btn nav-color text-light py-1 guzik shadowlog">
+            <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
+        </button>
     </a>
     {% else %}
     <div class="col-12 pr-0 d-flex justify-content-end">
-      <div >
-        <a href="{% url 'login' %}">
-          <button class="btn nav-color text-light mr-1 py-1 guzik shadowlog">
-            <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
-          </button>
-        </a>
-      </div>
-      <div >
-        <a href="{% url 'signup' %}">
-          <button class="btn nav-color text-light py-1 guzik shadowlog">
-          <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
-        </button>
-        </a>
-      </div>
+        <div>
+            <a href="{% url 'login' %}">
+                <button class="btn nav-color text-light mr-1 py-1 guzik shadowlog">
+                    <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
+                </button>
+            </a>
+        </div>
+        <div>
+            <a href="{% url 'signup' %}">
+                <button class="btn nav-color text-light py-1 guzik shadowlog">
+                    <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
+                </button>
+            </a>
+        </div>
     </div>
     {% endif %}
-  </span>
+</span>
 </header>
 <div class="container bg-light rounded mb-5">
     <div class="col-12 margin100 p-3">
@@ -41,7 +41,13 @@
 
             <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
-                <img class="card-img-top" src="/media/{{ wine.image }}" height="400" />
+                {% if wine.image %}
+                <a href="{{ wine.image.url }}">
+                    {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
+                    <img class="card-img-top" src="{{ image.url }}" />
+                    {% endthumbnail %}
+                </a>
+                {% endif %}
             </div>
             <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
 
@@ -50,18 +56,26 @@
                 </div>
                 <!-- tutaj będzie trzeba wstawić parametry -->
                 <ul class="list-group list-group-flush mb-5">
-                    <li class="list-group-item"><h5><b>Cena:</b> {{ wine.price }} </h5></li>
-                    <li class="list-group-item"><h5><b>Kolor:</b> {{ wine.color_name }} </h5></li>
-                    <li class="list-group-item"><h5><b>Smak:</b> {{ wine.taste_name }} </h5></li>
-                    <li class="list-group-item"><h5><b>Opis:</b> {{ wine.descriptions }} </h5></li>
+                    <li class="list-group-item">
+                        <h5><b>Cena:</b> {{ wine.price }} </h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5><b>Kolor:</b> {{ wine.color_name }} </h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5><b>Smak:</b> {{ wine.taste_name }} </h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5><b>Opis:</b> {{ wine.descriptions }} </h5>
+                    </li>
                 </ul>
             </div>
 
-             <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->
+            <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->
             <div class="col-12 mt-5 pt-5">
                 <div class="float-right">
-                    <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal" data-target="#opinia"><i
-                            class="fas fa-plus "></i> Dodaj opinię</button>
+                    <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal"
+                        data-target="#opinia"><i class="fas fa-plus "></i> Dodaj opinię</button>
                     <!-- Modal - wyskakujący popup do dodania opinii -->
                     <div class="modal fade" id="opinia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                         aria-hidden="true">
@@ -69,7 +83,8 @@
                             <div class="modal-content">
                                 <div class="modal-header bg-wlasne py-4 text-light">
                                     <h5 class="modal-title" id="exampleModalLabel">Dodaj swoją opinię</h5>
-                                    <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close text-light" data-dismiss="modal"
+                                        aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -79,11 +94,11 @@
                                         {% csrf_token %}
                                         {{ form.as_p }}
                                         <div class="modal-footer pb-0">
-                                            <button type="button" class="btn btn-secondary guzik"
-                                                    data-dismiss="modal">
+                                            <button type="button" class="btn btn-secondary guzik" data-dismiss="modal">
                                                 Anuluj
                                             </button>
-                                            <a href="#"><button type="submit" class="btn btn-dark guzik">Zapisz</button></a>
+                                            <a href="#"><button type="submit"
+                                                    class="btn btn-dark guzik">Zapisz</button></a>
                                         </div>
                                     </form>
                                 </div>
