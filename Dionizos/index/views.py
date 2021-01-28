@@ -32,26 +32,29 @@ def index(request):
             context={"form":form,
                     "wines": wines})
 
-
 def produkt(request, pk):
+
      wine = get_object_or_404(Wine, pk=pk)
-     comments = Wine.comment
+     WineComments = wine.comments.filter()
      new_comment = None
-     form = CommentForm(request.POST)
 
      if request.method == 'POST':
-        if form.is_valid():
-            new_comment = form.save(commit=False)
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
             new_comment.wine = wine
             new_comment.save()
             return HttpResponseRedirect(request.path_info)
+     else:
+         comment_form = CommentForm()
 
 
-     return render(request, template_name="index/produkt.html",
-                  context = {'form': form,
+     return render(request,
+                  template_name="index/produkt.html",
+                  context = {'form': comment_form,
                              'wine': get_object_or_404(Wine, pk=pk),
-                             'comments': comments,
-                             'new_comment': new_comment,                            })
+                             'comments': WineComments,
+                             'new_comment': new_comment})
 
     
 @login_required

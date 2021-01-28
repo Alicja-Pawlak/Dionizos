@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\Dionizos",
+    "\\Dionizos\\Dionizos",
     "\\Dionizos\\index",
+    "\\Dionizos\\index\\migrations",
+    "\\Dionizos\\index\\templates",
     "\\Dionizos\\index\\templates\\edytuj",
-    "\\Dionizos\\index\\templates\\index",
-    "\\Dionizos\\media"
+    "\\Dionizos\\index\\templates\\index"
   ],
-  "SelectedNode": "\\Dionizos\\index\\forms.py",
+  "SelectedNode": "\\Dionizos\\index\\views.py",
   "PreviewInSolutionExplorer": false
 }
