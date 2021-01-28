@@ -23,63 +23,96 @@
 
 <body class="bg-wlasne">
 
-  <header>
-    <nav class="navbar navbar-expand-md fixed-top nav-color navbar-dark">
-      
-          <div class="z-index col-6 offset-3 col-md-12 offset-md-0 text-center">
-            <a class="logo navbar-brand" href="{% url 'index' %}">
-                <b>Dionizos</b>  
+    <header>
+        <nav class="navbar navbar-expand-md fixed-top nav-color navbar-dark">
+
+            <div class="z-index col-6 offset-3 col-md-12 offset-md-0 text-center">
+                <a class="logo navbar-brand" href="{% url 'index' %}">
+                    <b>Dionizos</b>
+                </a>
+            </div>
+
+            <!-- nie zamykam znaczników header i nav w base,
+            bo w indexie są dodatkowe opcje przy nawigacji,
+            których nie użyłam na innyc podstronach -->
+            </button>
+        </nav>
+        <span class="col-3 offset-9  marginlog mt-sm-2 fixed-top d-flex justify-content-end text-light">
+            {% if user.is_authenticated %}
+            <div class="d-flex align-items-center">
+                <span class="btn bg-wlasne py-1 text-light">
+                    {{ user.username }}
+                </span>
+            </div>
+            <a href="{% url 'logout' %}">
+                <button class="btn nav-color text-light py-1 guzik shadowlog">
+                    <i class="d-none d-lg-inline fas fa-sign-out"></i> Wyloguj
+                </button>
             </a>
-        </div>
+            {% else %}
+            <div class="col-12 pr-0 d-flex justify-content-end">
+                <div>
+                    <a href="{% url 'login' %}">
+                        <button class="btn nav-color text-light mr-1 py-1 guzik shadowlog">
+                            <i class="d-none d-xl-inline fas fa-sign-in"></i> Zaloguj
+                        </button>
+                    </a>
+                </div>
+                <div>
+                    <a href="{% url 'signup' %}">
+                        <button class="btn nav-color text-light py-1 guzik shadowlog">
+                            <i class="d-none d-xl-inline fas fa-sign-out"></i> Zarejestruj
+                        </button>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </span>
+    </header>
+    <section class="content">
+        {% block content %}
+        Domyślny!
+        {% endblock %}
+    </section>
 
-      <!-- nie zamykam znaczników header i nav w base, 
-        bo w indexie są dodatkowe opcje przy nawigacji,
-        których nie użyłam na innyc podstronach -->
-
-<section class="content">
-   {% block content %}
-   Domyślny!
-   {% endblock %}
-</section>
-
-      <footer class="navbar sticky-bottom nav-color text-light pb-2">
+    <footer class="navbar sticky-bottom nav-color text-light pb-2">
         <div class="container-fluid pt-2">
-          <div class="col-12">
-          <div class="row">
-            <div class="col-12 col-md-4 d-flex p-0 m-0 justify-content-center">
-              <b>Copyright @</b> Dionizos
-            </div>
-            <div class="col-12 col-md-4 d-flex justify-content-center">
-              <!-- ikonki do footera -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-4 d-flex p-0 m-0 justify-content-center">
+                        <b>Copyright @</b> Dionizos
+                    </div>
+                    <div class="col-12 col-md-4 d-flex justify-content-center">
+                        <!-- ikonki do footera -->
 
-                <b>Kontakt</b>: dionizoscompany@gmail.com
-                <!-- <i class="fab fa-facebook-square fa-2x p-xs-0 px-sm-3 "></i>
-                <i class="fab fa-twitter-square fa-2x p-xs-0 px-sm-3"></i>
-                <i class="fab fa-google-plus-square fa-2x p-xs-0 px-sm-3"></i>
-                <i class="fab fa-youtube-square fa-2x p-xs-0 pl-sm-3"></i> -->
-              </div>
-              <div class="col-12 col-md-4 d-flex justify-content-center">
-                <i class="fab fa-facebook-square fa-2x px-3 "></i>
-                <i class="fab fa-twitter-square fa-2x px-3"></i>
-                <i class="fab fa-google-plus-square fa-2x px-3"></i>
-              </div>
+                        <b>Kontakt</b>: dionizoscompany@gmail.com
+                        <!-- <i class="fab fa-facebook-square fa-2x p-xs-0 px-sm-3 "></i>
+                        <i class="fab fa-twitter-square fa-2x p-xs-0 px-sm-3"></i>
+                        <i class="fab fa-google-plus-square fa-2x p-xs-0 px-sm-3"></i>
+                        <i class="fab fa-youtube-square fa-2x p-xs-0 pl-sm-3"></i> -->
+                    </div>
+                    <div class="col-12 col-md-4 d-flex justify-content-center">
+                        <i class="fab fa-facebook-square fa-2x px-3 "></i>
+                        <i class="fab fa-twitter-square fa-2x px-3"></i>
+                        <i class="fab fa-google-plus-square fa-2x px-3"></i>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      </footer>
-      <!-- JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-      </script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-      </script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-      </script>
-      <script src="{% static 'app.js' %}"></script>
+        </div>
+    </footer>
+    <!-- JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="{% static 'app.js' %}"></script>
 </body>
 
 </html>

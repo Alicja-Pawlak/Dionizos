@@ -38,15 +38,15 @@ class SearchForm(forms.Form):
     color = forms.ModelChoiceField(required=False,
                                       queryset=Color.objects.all(),
                                       label_suffix="",
-                                      empty_label="",
+                                      empty_label="Kolor",
                                       label="Color",
-                                      widget=forms.widgets.Select(attrs={"class": "form-control"}))
+                                      widget=forms.widgets.Select(attrs={"class": "form-control","style":"width:160px;"}))
     taste = forms.ModelChoiceField(required=False,
                                       queryset=Taste.objects.all(),
                                       label_suffix="",
-                                      empty_label="",
+                                      empty_label="Smak",
                                       label="Taste",
-                                      widget=forms.widgets.Select(attrs={"class": "form-control"}))
+                                      widget=forms.widgets.Select(attrs={"class": "form-control","style":"width:160px;"}))
 
 
 class CommentForm(forms.ModelForm):
