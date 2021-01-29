@@ -7,8 +7,9 @@
     "\\Dionizos\\index\\migrations",
     "\\Dionizos\\index\\templates",
     "\\Dionizos\\index\\templates\\edytuj",
-    "\\Dionizos\\index\\templates\\index"
+    "\\Dionizos\\index\\templates\\index",
+    "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos\\index\\views.py",
+  "SelectedNode": "\\Dionizos\\index\\templates\\edytuj\\dodaj.html",
   "PreviewInSolutionExplorer": false
 }

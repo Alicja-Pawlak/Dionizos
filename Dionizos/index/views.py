@@ -16,15 +16,13 @@ def index(request):
         wines_filter = Q()
 
         if form.cleaned_data["fraze"] != "":
-            wines_filter &= Q(Q(name__icontains=form.cleaned_data["fraze"])
-                                |Q(color__icontains=form.cleaned_data["fraze"])
-                                |Q(taste__icontains=form.cleaned_data["fraze"]))
+            wines_filter &= Q(Q(name__icontains=form.cleaned_data["fraze"]))
 
-            if form.cleaned_data["color"]:
-                wines_filter &= Q(status=form.cleaned_data["color"])
+        if form.cleaned_data["color"]:
+                wines_filter &= Q(color=form.cleaned_data["color"])
 
-            if form.cleaned_data["taste"]:
-                wines_filter &= Q(category=form.cleaned_data["taste"])
+        if form.cleaned_data["taste"]:
+                wines_filter &= Q(taste=form.cleaned_data["taste"])
 
         wines = Wine.objects.filter(wines_filter)
     return render(request,
