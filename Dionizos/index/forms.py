@@ -52,5 +52,13 @@ class SearchForm(forms.Form):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('nickname', 'description')
+        fields = ["nickname",
+                  "description"]
+
+        widgets = {"nickname": forms.widgets.TextInput(attrs={"class": "form-control",
+                                                                "cols": 50,
+                                                                "rows": 8}),
+            "description": forms.widgets.Textarea(attrs={"class": "form-control",
+                                                                    "cols": 40,
+                                                                    "rows": 4}),}
 

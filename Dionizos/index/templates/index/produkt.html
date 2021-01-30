@@ -36,6 +36,9 @@
                         <h5><b>Opis:</b> {{ wine.descriptions }} </h5>
                     </li>
                 </ul>
+                <a href="{% url 'edytuj' wine.id %}">
+                    <button type="button" class="guzik btn bg-black text-light btn-sm px-4">
+                        Wybierz
             </div>
 
             <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->

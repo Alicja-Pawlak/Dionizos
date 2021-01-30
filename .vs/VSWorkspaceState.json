@@ -10,6 +10,6 @@
     "\\Dionizos\\index\\templates\\index",
     "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos\\index\\templates\\edytuj\\dodaj.html",
+  "SelectedNode": "\\Dionizos\\index\\views.py",
   "PreviewInSolutionExplorer": false
 }

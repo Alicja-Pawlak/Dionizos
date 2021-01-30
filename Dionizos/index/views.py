@@ -67,9 +67,27 @@ def dodaj(request):
             return redirect("index")
 
     return render(request,
-                  template_name="edytuj/edytuj.html",
+                  template_name="edytuj/dodaj.html",
                   context={"form": form})
 
+def edytuj(request, pk):
+
+    wine = get_object_or_404(Wine,
+                               pk=pk)
+    form = WineForm(label_suffix="",
+                    instance=wine)
+    if request.POST:
+        form = WineForm(request.POST,
+                        request.FILES,
+                          label_suffix="",
+                          instance=wine)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+
+    return render(request,
+                  template_name="edytuj/edytuj.html",
+                  context={"form": form})
 
 def opinie(request):
     return render(request,
