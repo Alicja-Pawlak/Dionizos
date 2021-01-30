@@ -30,7 +30,7 @@ class WineForm(forms.ModelForm):
                 
 # formularz przeszukiwania na głównej stronie                                                         
 class SearchForm(forms.Form):
-    fraze = forms.CharField(required=False, label="",widget=forms.widgets.TextInput(attrs={"placeholder":"Szukaj",
+    fraze = forms.CharField(required=False, label="",widget=forms.widgets.TextInput(attrs={"placeholder":"Szukaj nazwy...",
                                                                   "class":"form-control",
                                                                  "style":"width:200px;display:inline;"}))
 
