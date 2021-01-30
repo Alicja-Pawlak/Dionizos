@@ -1,5 +1,5 @@
 from django.contrib import admin
-from index.models import Wine, Comment, Taste, Color
+from index.models import Wine, Comment, Taste, Color, WineImage
 
 # Register your models here.
 
@@ -15,8 +15,20 @@ class TasteAdmin(admin.ModelAdmin):
 class ColorAdmin(admin.ModelAdmin):
     list_display=("color",)
 
+class WineImageAdmin(admin.StackedInline):
+    model = WineImage
 
-admin.site.register(Wine,WineAdmin)
+@admin.register(Wine)
+class WineAdmin(admin.ModelAdmin):
+    inlines = [WineImageAdmin] 
+
+    class Meta:
+       model = Wine
+
+@admin.register(WineImage)
+class WineImageAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Comment,CommentAdmin)
 admin.site.register(Taste,TasteAdmin)
 admin.site.register(Color,ColorAdmin)

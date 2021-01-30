@@ -26,8 +26,6 @@ class Taste(models.Model):
     def __str__(self):
         return self.taste
     
-
-
 class Wine(models.Model):
     name = models.TextField(max_length=32,
                               unique=True,
@@ -56,7 +54,11 @@ class Wine(models.Model):
                                blank=True,
                                verbose_name="opis")
 
-    image = models.ImageField()
+    pictures = models.FileField(blank=True)
+
+    def __str__(self):
+       return self.name
+
 
 class Comment(models.Model):
 
@@ -76,3 +78,12 @@ class Comment(models.Model):
    def __str__(self):
         return 'Comment {} by {}'.format(self.description, self.nickname)
 
+class WineImage(models.Model):
+   wine = models.ForeignKey(Wine,
+                      on_delete=models.CASCADE,
+                      related_name='wine',)
+
+   wineimage = models.ImageField(verbose_name='image')
+
+   def __str__(self):
+       return self.wine

@@ -13,7 +13,7 @@ class WineForm(forms.ModelForm):
                   "color",
                   "taste",
                   "descriptions",
-                  "image"]
+                  "pictures"]
         widgets = {"name": forms.widgets.TextInput(attrs={"class": "form-control",
                                                                 "cols": 50,
                                                                 "rows": 8}),

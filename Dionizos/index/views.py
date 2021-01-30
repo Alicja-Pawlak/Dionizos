@@ -35,6 +35,7 @@ def produkt(request, pk):
      wine = get_object_or_404(Wine, pk=pk)
      WineComments = wine.comments.filter()
      new_comment = None
+     photos = WineImage.objects.filter(post=post)
 
      if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
@@ -51,6 +52,7 @@ def produkt(request, pk):
                   template_name="index/produkt.html",
                   context = {'form': comment_form,
                              'wine': get_object_or_404(Wine, pk=pk),
+                             'photos': photos,
                              'comments': WineComments,
                              'new_comment': new_comment})
 
