@@ -10,9 +10,36 @@
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
                 {% if wine.image %}
                 <a href="{{ wine.image.url }}">
-                    {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
-                    <img class="card-img-top" src="{{ image.url }}" />
-                    {% endthumbnail %}
+
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
+                                <img class="card-img-top" src="{{ image.url }}" />
+                                {% endthumbnail %}
+                            </div>
+                            <div class="carousel-item">
+                                {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
+                                <img class="card-img-top" src="{{ image.url }}" />
+                                {% endthumbnail %}
+                            </div>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </a>
                 {% endif %}
             </div>
@@ -39,6 +66,8 @@
                 <a href="{% url 'edytuj' wine.id %}">
                     <button type="button" class="guzik btn bg-black text-light btn-sm px-4">
                         Wybierz
+                    </button>
+                </a>
             </div>
 
             <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->
