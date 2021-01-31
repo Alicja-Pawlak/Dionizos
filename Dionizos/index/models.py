@@ -54,7 +54,7 @@ class Wine(models.Model):
                                blank=True,
                                verbose_name="opis")
 
-    pictures = models.FileField(blank=True)
+    pictures = models.ImageField(upload_to = 'Wystawowe/')
 
     def __str__(self):
        return self.name
@@ -83,7 +83,7 @@ class WineImage(models.Model):
                       on_delete=models.CASCADE,
                       related_name='wine',)
 
-   wineimage = models.ImageField(verbose_name='image')
+   wineimage = models.ImageField(upload_to = 'media/')
 
    def __str__(self):
-       return self.wine
+       return self.wine.name

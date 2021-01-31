@@ -134,3 +134,6 @@ LOGOUT_REDIRECT_URL = 'index'
 MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+CACHE_ROOT  = os.path.join(BASE_DIR, 'media/cache')
+CACHE_URL = '/media/cache/'
+

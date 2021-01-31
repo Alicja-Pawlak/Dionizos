@@ -28,14 +28,6 @@
   </article>
   <section>
 
-
-    <!-- tutaj trzeba naprawić przeszukiwanie
-      dobrze przeszukuje jedynie po nazwie,
-      zamiast półsłodkie trzeba wpisywać 'se',
-      zamiast czerwone 'r' itp. -->
-
-
-
     <form class="col-12 mt-3 px-0" action="." method="POST">
       <div class="row d-flex justify-content-end">
         {% csrf_token %}
@@ -67,19 +59,15 @@
       <div class="col-md-6 col-lg-3 mb-4">
         <div class="card-group">
           <div class="card border-light shadow p-3 rounded mb-5">
-            {% if wine.image %}
+            {% if wine.pictures %}
             <a href="{% url 'produkt' wine.id %}">
-              {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
-              <img class="card-img-top" src="{{ image.url }}" />
+              {% thumbnail wine.pictures "200x400" crop="center" quality=150 as image %}
+              <img class="card-img-top" src="wystawowe{{ image.url }}" />
               {% endthumbnail %}
             </a>
             {% endif %}
 
-            <!-- aktualnie trzeba podawać ścieżkę do zdjęcia w bazie -->
             <div class="card-body text-center">
-
-              <!-- funkcje z podłogą zwracają te dobre nazwy 
-                  (czerwone, a nie 'r', półsłodkie, a nie 'se') -->
 
               <h5 class="card-title pt-4">{{ wine.name }}</h5>
               <h6 class="card-title m-0">{{ wine.color }}</h6>

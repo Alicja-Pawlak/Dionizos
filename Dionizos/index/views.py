@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from index.models import Wine, Comment
+from index.models import Wine, Comment, WineImage
 from index.forms import WineForm, SearchForm, CommentForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -35,7 +35,7 @@ def produkt(request, pk):
      wine = get_object_or_404(Wine, pk=pk)
      WineComments = wine.comments.filter()
      new_comment = None
-     photos = WineImage.objects.filter(post=post)
+     photos = WineImage.objects.filter(wine=wine)
 
      if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)

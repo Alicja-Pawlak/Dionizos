@@ -3,11 +3,8 @@
     "",
     "\\Dionizos",
     "\\Dionizos\\Dionizos",
-    "\\Dionizos\\index",
-    "\\Dionizos\\index\\migrations",
-    "\\Dionizos\\index\\templates\\edytuj",
-    "\\Dionizos\\index\\templates\\index"
+    "\\Dionizos\\index"
   ],
-  "SelectedNode": "\\Dionizos\\index\\migrations\\__init__.py",
+  "SelectedNode": "\\Dionizos\\index\\forms.py",
   "PreviewInSolutionExplorer": false
 }
