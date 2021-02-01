@@ -24,8 +24,8 @@
 
                             {% for p in photos %}
 
-                            <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                                {% thumbnail wine.pictures "200x400" crop="center" quality=150 as image %}
+                            <div class="mt-5 carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                {% thumbnail wine.pictures "200x350" crop="center" quality=150 as image %}
                                 <img class="card-img-top" src="{{ p.wineimage.url }}" width="{{ image.width }}" height="{{ image.height }}" />
                                 {% empty %}
                                 <p>Brak zdjęcia</p>
