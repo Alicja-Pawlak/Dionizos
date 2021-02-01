@@ -41,12 +41,22 @@
         <h3 class="bg-wlasne p-4 text-light titles text-center mt-2 mb-5 rounded">Rejestracja</h3>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <div class="d-flex justify-content-end">
-                <a href="{% url 'index' %}"><button class="btn btn-secondary guzik mr-1" type="button">Anuluj</button></a>
-                <button class="btn btn-dark guzik" type="submit">Zarejestruj się</button>
-            </div>
+            {% for field in form %}
+            <p>
+                <b>{{ field.label_tag }}</b><br>
+                {{ field }}
+                {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p style="color: red">{{ error }}</p>
+                {% endfor %}
+            </p>
+            {% endfor %}
+            <a href="{% url 'index' %}"><button class="btn btn-secondary guzik mr-1" type="button">Anuluj</button></a>
+            <button class="btn btn-dark guzik" type="submit">Zarejestruj się</button>
+</div>
         </form>
     </div>
 </div>
-        {% endblock %}
+ {% endblock %}

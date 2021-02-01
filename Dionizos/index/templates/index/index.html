@@ -62,7 +62,7 @@
             {% if wine.pictures %}
             <a href="{% url 'produkt' wine.id %}">
               {% thumbnail wine.pictures "200x400" crop="center" quality=150 as image %}
-              <img class="card-img-top" src="wystawowe{{ image.url }}" />
+              <img class="card-img-top" src="{{ image.url }}" />
               {% endthumbnail %}
             </a>
             {% endif %}

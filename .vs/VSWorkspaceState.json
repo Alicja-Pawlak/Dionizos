@@ -3,8 +3,10 @@
     "",
     "\\Dionizos",
     "\\Dionizos\\Dionizos",
-    "\\Dionizos\\index"
+    "\\Dionizos\\index",
+    "\\Dionizos\\index\\templates",
+    "\\Dionizos\\index\\templates\\index"
   ],
-  "SelectedNode": "\\Dionizos\\index\\forms.py",
+  "SelectedNode": "\\Dionizos",
   "PreviewInSolutionExplorer": false
 }
