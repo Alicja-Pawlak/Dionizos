@@ -29,17 +29,18 @@ class Taste(models.Model):
 class Wine(models.Model):
     name = models.TextField(max_length=32,
                               unique=True,
-                              verbose_name="name")
+                              verbose_name="Nazwa")
 
     price = models.DecimalField(max_digits=6,
-                               decimal_places=2)
+                               decimal_places=2,
+                               verbose_name="Cena")
 
 
     color = models.ForeignKey(Color,
                                  null=True,
                                  blank=True,
                                  on_delete=models.PROTECT,
-                                 verbose_name="color",
+                                 verbose_name="Kolor",
                                  related_name="wines")
 
 
@@ -47,14 +48,15 @@ class Wine(models.Model):
                                  null=True,
                                  blank=True,
                                  on_delete=models.PROTECT,
-                                 verbose_name="taste",
+                                 verbose_name="Smak",
                                  related_name="wines")
     
     descriptions = models.TextField(default="",
                                blank=True,
                                verbose_name="opis")
 
-    pictures = models.ImageField(upload_to = 'Wystawowe/')
+    pictures = models.ImageField(upload_to = 'Wystawowe/',
+                                 verbose_name="Zdjęcie")
 
     def __str__(self):
        return self.name
