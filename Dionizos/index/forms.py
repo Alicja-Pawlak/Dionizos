@@ -39,7 +39,7 @@ class SearchForm(forms.Form):
                                       queryset=Color.objects.all(),
                                       label_suffix="",
                                       empty_label="Kolor",
-                                      label="Color",
+                                      label="",
                                       widget=forms.widgets.Select(attrs={"class": "form-control","style":"width:160px;"}))
 
     taste = forms.ModelChoiceField(required=False,
@@ -50,10 +50,13 @@ class SearchForm(forms.Form):
                                       widget=forms.widgets.Select(attrs={"class": "form-control","style":"width:160px;"}))
 
     price_min = forms.DecimalField(max_digits=6, decimal_places=2,
-                                    required=False,)
+                                    required=False,
+                                    label = "",
+                                    widget=forms.widgets.NumberInput(attrs={'placeholder': 'Cena od',"class": "form-control","style":"width:160px;"}))
 
     price_max = forms.DecimalField(max_digits=6, decimal_places=2,
-                                  required=False,)
+                                  required=False,
+                                  widget=forms.widgets.NumberInput(attrs={'placeholder': 'Cena do',"class": "form-control","style":"width:160px;"}))
 
 
 class CommentForm(forms.ModelForm):
