@@ -31,15 +31,14 @@
     <form class="col-12 mt-3 px-0" action="." method="POST">
       <div class="row d-flex justify-content-end">
         {% csrf_token %}
-
-        <!-- <div class="px-2">{{ form.price }}</div> -->
         <div class="col-12 col-md-4 col-xl-2 d-flex justify-content-end">{{ form.taste }}</div>
-        <div class="col-12 col-md-4 col-xl-2 mt-1 mt-md-0 d-flex justify-content-end">{{ form.taste }}</div>
         <div class="col-12 col-md-4 col-xl-2 mt-1 mt-md-0 d-flex justify-content-end">{{ form.color }}</div>
-        <div class="col-6 col-md-8 col-xl-3 mt-1 mt-xl-0 d-flex justify-content-end">
-          {{ form.fraze }}
-          <button class="px-2 btn bg-black text-light guzik" type="submit"><i class="fas fa-search px-2 py-1"
-              aria-hidden="true"></i></button>
+        <div class="col-6 col-md-8 col-xl-3 mt-1 mt-xl-0 d-flex justify-content-end"> {{ form.price_min }}</div>
+        <div class="col-6 col-md-8 col-xl-3 mt-1 mt-xl-0 d-flex justify-content-end">{{ form.price_max }}</div>
+            <button class="px-2 btn bg-black text-light guzik" type="submit"></div>
+                <i class="fas fa-search px-2 py-1"
+                   aria-hidden="true"></i>
+            </button>
         </div>
         <div class="col-12 d-flex justify-content-end mt-1 mt-xl-0 col-md-2 col-xl-1">
           <a href="{% url 'dodaj' %}">

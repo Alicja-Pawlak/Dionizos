@@ -13,10 +13,9 @@ def index(request):
     form = SearchForm(request.POST)
     wines = None
     if form.is_valid():
-        wines_filter = Q()
-
+        wines_filter = price_min = price_max = Q()
         if form.cleaned_data["fraze"] != "":
-            wines_filter &= Q(Q(name__icontains=form.cleaned_data["fraze"]))
+                wines_filter &= Q(Q(name__icontains=form.cleaned_data["fraze"]))
 
         if form.cleaned_data["color"]:
                 wines_filter &= Q(color=form.cleaned_data["color"])
@@ -24,7 +23,14 @@ def index(request):
         if form.cleaned_data["taste"]:
                 wines_filter &= Q(taste=form.cleaned_data["taste"])
 
-        wines = Wine.objects.filter(wines_filter)
+        if form.cleaned_data["price_min"]:
+            wines_filter = Q(price__gte=form.cleaned_data["price_min"])
+
+        if form.cleaned_data["price_max"]:
+            wines_filter = Q(price__lte=form.cleaned_data["price_max"])
+
+        wines = Wine.objects.filter(wines_filter,)
+
     return render(request,
             template_name="index/index.html",
             context={"form":form,
