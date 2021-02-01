@@ -8,27 +8,33 @@
 
             <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
-                {% if wine.image %}
+                {% if wine.pictures %}
                 <a href="{{ wine.image.url }}">
 
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                        <!--Indicators-->
                         <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            {% for p in photos %}
+                            <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}"
+                                class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                            {% endfor %}
                         </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
-                                <img class="card-img-top" src="{{ image.url }}" />
+                        <div class="carousel-inner" role="listbox">
+
+
+                            {% for p in photos %}
+
+                            <div class="carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                {% thumbnail wine.pictures "200x400" crop="center" quality=150 as image %}
+                                <img class="card-img-top" src="{{ p.wineimage.url }}" width="{{ image.width }}" height="{{ image.height }}" />
+                                {% empty %}
+                                <p>Brak zdjęcia</p>
                                 {% endthumbnail %}
                             </div>
-                            <div class="carousel-item">
-                                {% thumbnail wine.image "200x400" crop="center" quality=150 as image %}
-                                <img class="card-img-top" src="{{ image.url }}" />
-                                {% endthumbnail %}
-                            </div>
+                            {% endfor %}
 
                         </div>
+
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                             data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,8 +70,8 @@
                     </li>
                 </ul>
                 <a href="{% url 'edytuj' wine.id %}">
-                    <button type="button" class="guzik btn bg-black text-light btn-sm px-4">
-                        Wybierz
+                    <button type="button" class="guzik mb-2 btn bg-black text-light btn-sm px-4">
+                        Edytuj
                     </button>
                 </a>
             </div>
@@ -87,17 +93,17 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body nav-color text-light">
                                     <!-- tu się zaczyna formularz -->
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         {{ form.as_p }}
                                         <div class="modal-footer pb-0">
-                                            <button type="button" class="btn btn-secondary guzik" data-dismiss="modal">
+                                            <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">
                                                 Anuluj
                                             </button>
                                             <a href="#"><button type="submit"
-                                                    class="btn btn-dark guzik">Zapisz</button></a>
+                                                    class="btn bg-black text-light border guzik">Zapisz</button></a>
                                         </div>
                                     </form>
                                 </div>

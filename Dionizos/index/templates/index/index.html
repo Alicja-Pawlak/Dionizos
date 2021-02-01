@@ -61,8 +61,11 @@
           <div class="card border-light shadow p-3 rounded mb-5">
             {% if wine.pictures %}
             <a href="{% url 'produkt' wine.id %}">
+              
               {% thumbnail wine.pictures "200x400" crop="center" quality=150 as image %}
-              <img class="card-img-top" src="wystawowe{{ image.url }}" />
+              <img class="card-img-top" src="{{ image.url }}" />
+              {% empty %}
+              <p>Brak zdjęcia</p>
               {% endthumbnail %}
             </a>
             {% endif %}
@@ -74,8 +77,7 @@
               <h6 class="card-title ">{{ wine.taste }}</h6>
               <h6 class="card-title ">{{ wine.price }} zł</h6>
 
-              <!-- tutaj będzie trzeba zrobić przekierowanie
-                do strony danego produktu   aktualnie url = /produkt/1) -->
+              <!--  przekierowanie -->
               <a href="{% url 'produkt' wine.id %}">
                 <button type="button" class="guzik btn bg-black text-light btn-sm px-4">
                   Wybierz
