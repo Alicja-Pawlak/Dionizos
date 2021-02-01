@@ -1,5 +1,5 @@
 from django import forms
-from index.models import Wine, Comment, Color, Taste
+from index.models import Wine, Comment, Color, Taste, WineImage
 
 
 class WineForm(forms.ModelForm):
@@ -61,4 +61,11 @@ class CommentForm(forms.ModelForm):
                    "description": forms.widgets.Textarea(attrs={"class": "form-control",
                                                                     "cols": 40,
                                                                     "rows": 4}),}
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = WineImage
+        fields = ["wineimage"]
+
+        widgets = {"wineimage": forms.widgets.FileInput(),}
+
 

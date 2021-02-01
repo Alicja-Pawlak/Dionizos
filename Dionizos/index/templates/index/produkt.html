@@ -80,16 +80,18 @@
             <div class="col-12 mt-5 pt-5">
                 <div class="float-right">
                     <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal"
-                        data-target="#opinia"><i class="fas fa-plus "></i> Dodaj opinię</button>
+                            data-target="#opinia">
+                        <i class="fas fa-plus "></i> Dodaj opinię
+                    </button>
                     <!-- Modal - wyskakujący popup do dodania opinii -->
                     <div class="modal fade" id="opinia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
+                         aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header bg-wlasne py-4 text-light">
                                     <h5 class="modal-title" id="exampleModalLabel">Dodaj swoją opinię</h5>
                                     <button type="button" class="close text-light" data-dismiss="modal"
-                                        aria-label="Close">
+                                            aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -102,8 +104,50 @@
                                             <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">
                                                 Anuluj
                                             </button>
-                                            <a href="#"><button type="submit"
-                                                    class="btn bg-black text-light border guzik">Zapisz</button></a>
+                                            <a href="#">
+                                                <button type="submit"
+                                                        class="btn bg-black text-light border guzik">
+                                                    Zapisz
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div></a>
+                    <!-- koniec modala - popupu -->
+                    <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal"
+                            data-target="#zdjęcie">
+                        <i class="fas fa-plus "></i> Dodaj zdjęcie do produktu
+                    </button>
+                    <!-- Modal - wyskakujący popup do dodania zdjęć -->
+                    <div class="modal fade" id="zdjęcie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header bg-wlasne py-4 text-light">
+                                    <h5 class="modal-title" id="exampleModalLabel">Dodaj zdjęcie do produktu</h5>
+                                    <button type="button" class="close text-light" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body nav-color text-light">
+                                    <!-- tu się zaczyna formularz -->
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ images.wineimage }}
+                                        <div class="modal-footer pb-0">
+                                            <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">
+                                                Anuluj
+                                            </button>
+                                            <a href="#">
+                                                <button type="submit"
+                                                        class="btn bg-black text-light border guzik">
+                                                    Zapisz
+                                                </button>
+                                            </a>
                                         </div>
                                     </form>
                                 </div>

@@ -83,7 +83,7 @@ class WineImage(models.Model):
                       on_delete=models.CASCADE,
                       related_name='wine',)
 
-   wineimage = models.ImageField(upload_to = 'media/')
+   wineimage = models.ImageField()
 
    def __str__(self):
        return self.wine.name

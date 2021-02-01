@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from index.models import Wine, Comment, WineImage
-from index.forms import WineForm, SearchForm, CommentForm
+from index.forms import WineForm, SearchForm, CommentForm, ImageForm
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
@@ -35,24 +35,35 @@ def produkt(request, pk):
      wine = get_object_or_404(Wine, pk=pk)
      WineComments = wine.comments.filter()
      new_comment = None
+     new_image = None
      photos = WineImage.objects.filter(wine=wine)
 
      if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
+        image_form = ImageForm(request.POST,
+                                request.FILES,)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.wine = wine
             new_comment.save()
             return HttpResponseRedirect(request.path_info)
-     else:
-         comment_form = CommentForm()
 
+        if image_form.is_valid():
+            new_image = image_form.save(commit=False)
+            new_image.wine = wine
+            new_image.save()
+            return HttpResponseRedirect(request.path_info)
+
+     else:
+            image_form = ImageForm()
+            comment_form = CommentForm()
 
      return render(request,
                   template_name="index/produkt.html",
                   context = {'form': comment_form,
                              'wine': get_object_or_404(Wine, pk=pk),
                              'photos': photos,
+                             'images': image_form,
                              'comments': WineComments,
                              'new_comment': new_comment})
 
