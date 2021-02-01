@@ -13,16 +13,16 @@
         <!-- tutaj jest button do zapisywania produktu do bazy -->
         <div class="d-flex justify-content-end">
 
-          <button type="button" class="btn btn-secondary guzik mr-1" data-toggle="modal" data-target="#anulowanie">
+          <button type="button" class="btn bg-dark text-light guzik mr-1" data-toggle="modal" data-target="#anulowanie">
             Anuluj
           </button>
-          <button type="submit" class="btn btn-dark guzikd">Zapisz</button>
+          <button type="submit" class="btn bg-black text-light guzik">Zapisz</button>
         </div>
         <!-- Modal - wyskakujący popup -->
         <div class="modal fade" id="anulowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
           aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content  nav-color text-light">
               <div class="modal-header bg-wlasne text-light">
                 <h5 class="modal-title" id="exampleModalLabel">Na pewno?</h5>
                 <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
@@ -33,9 +33,9 @@
                 Po wyjściu wszystkie zmiany zostaną utracone.
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary guzik" data-dismiss="modal">Anuluj</button>
+                <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">Anuluj</button>
                 <a href="{% url 'index' %}">
-                  <button type="button" class="btn btn-dark guzik">
+                  <button type="button" class="btn bg-black text-light border guzik">
                     Wyjdź
                   </button>
                 </a>
