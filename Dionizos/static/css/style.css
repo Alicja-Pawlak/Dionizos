@@ -93,13 +93,13 @@ link:hover {
 }
 /* kolory strzałek przy karuzeli */
 
-.carousel-control-next-icon:after
+.carousel-control-next:after
 {
   content: '>';
   font-size: 30px;
   color: rgb(172, 172, 172);
 }
-.carousel-control-prev-icon:after {
+.carousel-control-prev:after {
     
     content: '<';
     font-size: 30px;
