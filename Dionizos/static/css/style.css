@@ -27,6 +27,13 @@ a{
     font-size: 50px;
     font-weight: 300 !important;
 }
+
+.tekst {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    font-weight: 300 !important;
+    text-align: center;
+}
 /* użyte przy komentarzach dla nazwy użytkownika */
 .text-bold{
     font-weight: 400;
