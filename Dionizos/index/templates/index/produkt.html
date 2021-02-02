@@ -6,7 +6,7 @@
     <div class="col-12 margin100 p-3">
         <div class="row">
 
-            <div class="col-sm-12 col-md-3 card mt-3 shadow-sm">
+            <div class="col-sm-12 col-md-6 offset-md-3 col-lg-3 offset-lg-0 card mt-3 shadow-sm">
                 <!-- tutaj trzeba będzie wstawić zdjątko -->
                 {% if wine.pictures %}
                 <a href="{{ wine.image.url }}">
@@ -37,19 +37,19 @@
 
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                             data-slide="prev">
-                            <span class=" carousel-control-prev-icon" aria-hidden="true"></span>
+                            
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
                             data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            
                             <span class="sr-only">Next</span>
                         </a>
                     </div>
                 </a>
                 {% endif %}
             </div>
-            <div class="col-sm-12 col-md-9 card mt-3 shadow-sm">
+            <div class="col-sm-12 col-lg-9 card mt-3 shadow-sm">
 
                 <div class="card-body">
                     <h4 class="titles card-title">{{ wine.name }}</h4>
