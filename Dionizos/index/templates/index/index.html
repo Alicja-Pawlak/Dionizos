@@ -43,6 +43,7 @@
           <button class=" px-2 btn bg-black text-light guzik" type="submit"><i class="fas fa-search px-2 py-1"
               aria-hidden="true"></i></button>
         </div>
+        {% if user.is_authenticated %}
         <div class="col-12 px-0 d-flex justify-content-center  mt-1 mt-xl-0 col-xl-1">
           <a href="{% url 'dodaj' %}">
             <button class="btn bg-black text-light guzik px-2" type="button" title="Dodaj produkt">
@@ -50,6 +51,8 @@
             </button>
           </a>
         </div>
+        {% else %}
+        {% endif %}
         
       </div>
     </form>

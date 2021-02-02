@@ -69,11 +69,14 @@
                         <h5><b>Opis:</b> {{ wine.descriptions }} </h5>
                     </li>
                 </ul>
+                {% if user.is_authenticated %}
                 <a href="{% url 'edytuj' wine.id %}">
                     <button type="button" class="guzik mb-2 btn bg-black text-light btn-sm px-4">
                         Edytuj
                     </button>
                 </a>
+                {%else%}
+                {%endif%}
             </div>
 
             <!-- tutaj będzie trzeba zrobić dodawanie opinii (w modalu jest formularz) -->
@@ -117,10 +120,13 @@
                         </div>
                     </div></a>
                     <!-- koniec modala - popupu -->
+                    {% if user.is_authenticated %}
                     <button type="button" class="btn bg-black text-light guzik mr-1" data-toggle="modal"
                             data-target="#zdjęcie">
                         <i class="fas fa-plus "></i> Dodaj zdjęcie do produktu
                     </button>
+                    {%else%}
+                    {%endif%}
                     <!-- Modal - wyskakujący popup do dodania zdjęć -->
                     <div class="modal fade" id="zdjęcie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                          aria-hidden="true">
