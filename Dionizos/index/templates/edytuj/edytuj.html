@@ -1,51 +1,50 @@
 {% extends "base.html" %}
+{%load static%}
 
 {% block content %}
-{%load static%}
-</nav>
 <div class="container bg-light rounded">
-  <div class="col-12 margin100 mb-5 p-3">
-    <h3 class="bg-wlasne p-4 text-light titles text-center mt-2 rounded">Dodaj produkt</h3>
-    <div class="p-4">
-      <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <!-- tutaj jest button do zapisywania produktu do bazy -->
-        <div class="d-flex justify-content-end">
+    <div class="col-12 margin100 mb-5 p-3">
+        <h3 class="bg-wlasne p-4 text-light titles text-center mt-2 rounded">{% block title %}{% endblock %}</h3>
+        <div class="p-4">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!-- tutaj jest button do zapisywania produktu do bazy -->
+                <div class="d-flex justify-content-end">
 
-          <button type="button" class="btn bg-dark text-light guzik mr-1" data-toggle="modal" data-target="#anulowanie">
-            Anuluj
-          </button>
-          <button type="submit" class="btn bg-black text-light guzik">Zapisz</button>
+                    <button type="button" class="btn bg-dark text-light guzik mr-1" data-toggle="modal" data-target="#anulowanie">
+                        Anuluj
+                    </button>
+                    <button type="submit" class="btn bg-black text-light guzik">Zapisz</button>
+                </div>
+                <!-- Modal - wyskakujący popup -->
+                <div class="modal fade" id="anulowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content  nav-color text-light">
+                            <div class="modal-header bg-wlasne text-light">
+                                <h5 class="modal-title" id="exampleModalLabel">Na pewno?</h5>
+                                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Po wyjściu wszystkie zmiany zostaną utracone.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">Anuluj</button>
+                                <a href="{% url 'index' %}">
+                                    <button type="button" class="btn bg-black text-light border guzik">
+                                        Wyjdź
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div></a>
+                <!-- koniec modala -->
+            </form>
         </div>
-        <!-- Modal - wyskakujący popup -->
-        <div class="modal fade" id="anulowanie" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content  nav-color text-light">
-              <div class="modal-header bg-wlasne text-light">
-                <h5 class="modal-title" id="exampleModalLabel">Na pewno?</h5>
-                <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Po wyjściu wszystkie zmiany zostaną utracone.
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-dark border guzik" data-dismiss="modal">Anuluj</button>
-                <a href="{% url 'index' %}">
-                  <button type="button" class="btn bg-black text-light border guzik">
-                    Wyjdź
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div></a>
-        <!-- koniec modala -->
-      </form>
     </div>
-  </div>
 </div>
 {% endblock %}
