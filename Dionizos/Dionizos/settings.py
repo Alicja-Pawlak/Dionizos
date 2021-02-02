@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'index.apps.IndexConfig',
     'sorl.thumbnail',
+    'verify_email',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,13 @@ CACHE_ROOT  = os.path.join(BASE_DIR, 'media/cache')
 CACHE_URL = '/media/cache/'
 
 LOGIN_URL = '/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'DionizosISpolka'
+EMAIL_HOST_PASSWORD = "}I2ouMe<,(`KGDc|JQQxgPU'HoJ.>3go"
+
+DEFAULT_FROM_EMAIL = 'noreply<no_reply@domain.com>'
+verification_success_redirect = LOGIN_URL

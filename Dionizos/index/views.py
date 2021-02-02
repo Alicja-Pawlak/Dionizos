@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from index.models import Wine, Comment, WineImage
-from index.forms import WineForm, SearchForm, CommentForm, ImageForm
+from index.forms import WineForm, SearchForm, CommentForm, ImageForm, UserCreationForm
 from django.db.models import Q
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from verify_email.email_handler import send_verification_email
+from django.contrib.auth.models import User
 
 
 def index(request):
@@ -116,11 +117,10 @@ def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            inactive_user = send_verification_email(request, form)
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
-            login(request, user)
             return redirect('index')
     else:
         form = UserCreationForm()

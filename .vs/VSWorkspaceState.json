@@ -5,8 +5,10 @@
     "\\Dionizos\\Dionizos",
     "\\Dionizos\\index",
     "\\Dionizos\\index\\templates",
-    "\\Dionizos\\index\\templates\\index"
+    "\\Dionizos\\index\\templates\\edytuj",
+    "\\Dionizos\\index\\templates\\index",
+    "\\Dionizos\\templates"
   ],
-  "SelectedNode": "\\Dionizos",
+  "SelectedNode": "\\Dionizos\\Dionizos\\asgi.py",
   "PreviewInSolutionExplorer": false
 }

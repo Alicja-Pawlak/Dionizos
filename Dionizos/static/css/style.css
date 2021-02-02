@@ -92,16 +92,3 @@ link:hover {
     box-shadow: 2px 2px 3px black;
 }
 /* kolory strzałek przy karuzeli */
-
-.carousel-control-next-icon:after
-{
-  content: '>';
-  font-size: 30px;
-  color: rgb(172, 172, 172);
-}
-.carousel-control-prev-icon:after {
-    
-    content: '<';
-    font-size: 30px;
-    color: rgb(172, 172, 172);
-  }
