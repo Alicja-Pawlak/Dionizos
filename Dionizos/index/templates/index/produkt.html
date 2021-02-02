@@ -16,17 +16,17 @@
                         <ol class="carousel-indicators">
                             {% for p in photos %}
                             <li data-target="#carousel-example-1z" data-slide-to="{{ forloop.counter0 }}"
-                                class="{% if forloop.counter0 == 0 %} active {% endif %}"></li>
+                                class="bg-secondary {% if forloop.counter0 == 0 %} active {% endif %}"></li>
                             {% endfor %}
                         </ol>
                         <div class="carousel-inner" role="listbox">
 
 
                             {% for p in photos %}
-
-                            <div class="mt-5 carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
-                                {% thumbnail wine.pictures "200x350" crop="center" quality=150 as image %}
-                                <img class="card-img-top" src="{{ p.wineimage.url }}" width="{{ image.width }}" height="{{ image.height }}" />
+                            
+                            <div class="p-3 mb-3 carousel-item {% if forloop.counter0 == 0 %} active {% endif %}">
+                                {% thumbnail p.wineimage "200x350" crop="center" quality=150 as image %}
+                                <img class="card-img-top" src="{{ image.url }}"  />
                                 {% empty %}
                                 <p>Brak zdjęcia</p>
                                 {% endthumbnail %}
@@ -37,7 +37,7 @@
 
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
                             data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class=" carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="sr-only">Previous</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
